@@ -1,0 +1,474 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KTS Travel</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+          rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+          rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+
+
+
+    <!-- Link đến file CSS riêng (ở đây giả sử đặt tên head.css) -->
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/listhotel.css" />
+</head>
+
+<body>
+
+    <!-- ===== Header: Navbar + Menu ===== -->
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="/img/logo/KTS_TV_Logo_2.png"
+                         alt="KTS Travel"
+                         class="logo-img-kts" />
+                </a>
+
+                <!-- Toggle button (cho mobile) -->
+                <button class="navbar-toggler border-0"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarContent"
+                        aria-controls="navbarContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Nội dung Navbar -->
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <!-- Search Box -->
+                    <form class="d-flex ms-lg-4 me-lg-auto my-2 my-lg-0" role="search">
+                        <div class="input-group search-box-kts">
+                            <input type="text"
+                                   class="form-control search-input-kts"
+                                   placeholder="Tìm theo điểm đến" />
+                            <button class="btn btn-outline-secondary search-btn-kts" type="submit">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Nhóm tài khoản & ngôn ngữ -->
+                    <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-3">
+                        <!-- Dropdown ngôn ngữ -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center p-0"
+                               href="#"
+                               id="dropdownLang"
+                               role="button"
+                               data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                <img src="https://flagcdn.com/w20/vn.png"
+                                     alt="VN"
+                                     class="flag-img-kts me-1" />
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownLang">
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="?lang=vi">
+                                        <img src="https://flagcdn.com/w20/vn.png" class="me-2" />
+                                        Tiếng Việt
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="?lang=en">
+                                        <img src="https://flagcdn.com/w20/us.png" class="me-2" />
+                                        English
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="?lang=jp">
+                                        <img src="https://flagcdn.com/w20/jp.png" class="me-2" />
+                                        日本語
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Trợ giúp, xem gần đây, đăng ký, đăng nhập -->
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="/help">Trợ giúp</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="/recent">xem gần đây</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="/register">Đăng ký</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-success btn-sm login-btn-kts ms-2" href="/login.html">Đăng nhập</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Divider (dòng ngăn cách) -->
+        <hr class="divider-kts m-0" />
+
+        <!-- Menu full-width bên dưới Navbar -->
+        <nav class="menu-kts-fullwidth">
+            <div class="container d-flex justify-content-center gap-4 py-2">
+                <a href="#" class="menu-item-kts">trải nghiệm</a>
+                <a href="#" class="menu-item-kts">khách sạn</a>
+                <a href="#" class="menu-item-kts">Tour</a>
+                <a href="#" class="menu-item-kts">Khám phá KTSTRAVEL</a>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- Nếu trang còn nội dung khác, đặt bên dưới banner -->
+    <main class="container my-5">
+
+        <section class="search-section">
+            <div class="search-wrapper">
+                <form class="search-box search-grid" id="searchForm">
+                    <div class="search-item field" id="locationField">
+                        <input type="text" id="location" placeholder="Địa điểm" autocomplete="off" />
+                    </div>
+                    <div class="search-item field" id="dateField">
+                        <input type="text" id="dateRange" placeholder="Ngày nhận / Trả phòng" readonly />
+                    </div>
+                    <div class="search-item field guest-field" id="guestField">
+                        <input type="text" id="guestsDisplay" placeholder="Số khách và phòng" readonly />
+                    </div>
+                    <button type="submit" class="btn-search">Tìm kiếm</button>
+                </form>
+            </div>
+        </section>
+
+
+        <section class="list-page">
+            <!-- Sidebar trái -->
+            <section class="sidebar">
+                <section class="map-preview">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.8249587161347!2d109.1797861146229!3d12.238792591344063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3170632f9ae2f26f%3A0x5d2b82f9a6fec82b!2zTmjhuqFpIFRyw6puZywgU-G7nyBUcsOgbiwgVmnhu4d0IE5hbSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1696435180182!5m2!1svi!2s"
+                            width="280"
+                            height="160"
+                            style="border:0; border-radius:8px;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <a href="https://goo.gl/maps/Ym3bYqYV6KkV9XUz9" target="_blank" class="view-map">Xem trong bản đồ</a>
+                </section>
+
+                <section class="search-name">
+                    <input type="text" placeholder="VD: Vinpearl">
+                    <span class="icon-search">🔍</span>
+                </section>
+
+                <section class="filters">
+                    <!-- Bộ lọc gần đây -->
+                    <section class="filter-group">
+                        <h4>Bộ lọc gần đây</h4>
+                        <label><input type="checkbox"> Khách sạn căn hộ</label>
+                    </section>
+
+                    <!-- Bộ lọc phổ biến -->
+                    <section class="filter-group">
+                        <h4>Bộ lọc phổ biến</h4>
+                        <label><input type="checkbox"> Thành phố Hồ Chí Minh (và vùng phụ cận)</label>
+                        <label><input type="checkbox"> Resort</label>
+                        <label><input type="checkbox"> Spa</label>
+                        <label><input type="checkbox"> Trọn gói</label>
+                        <label><input type="checkbox"> Bao gồm bữa sáng</label>
+                        <label><input type="checkbox"> Phù hợp cho khách gia đình</label>
+                        <label><input type="checkbox"> Căn hộ</label>
+                        <label><input type="checkbox"> Du thuyền</label>
+                    </section>
+
+                    <!-- Khoảng giá mỗi đêm -->
+                    <section class="filter-group price-group">
+                        <h4>Giá mỗi đêm</h4>
+                        <div class="price-inputs">
+                            <input type="text" placeholder="Tối thiểu 0 ₫">
+                            <input type="text" placeholder="Tối đa 28.800.000 ₫">
+                        </div>
+                        <input type="range" min="0" max="100" value="50" class="price-slider">
+                    </section>
+
+                    <!-- Xếp hạng sao -->
+                    <section class="filter-group star-group">
+                        <h4>Xếp hạng sao</h4>
+                        <div class="star-buttons">
+                            <button type="button">1★</button>
+                            <button type="button">2★</button>
+                            <button type="button">3★</button>
+                            <button type="button">4★</button>
+                            <button type="button">5★</button>
+                        </div>
+                    </section>
+                </section>
+            </section>
+
+            <!-- Main content -->
+            <section class="listings">
+                <!-- Item 1 -->
+                <section class="listing-item">
+                    <div class="listing-card" onclick="window.location.href='datphong.html'" style="cursor: pointer;">
+                        <div class="card-image">
+                            <img src="img/diadiem/kha.png" alt="Premier Residences Phú Quốc">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="hotel-name">Premier Residences Phú Quốc Emerald Bay</h3>
+                            <div class="rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="score">9.7</span>
+                                <span>(839 đánh giá)</span>
+                            </div>
+                            <div class="address">
+                                Thị Trấn An Thới, Huyện Phú Quốc – <a href="#">Xem bản đồ</a>
+                            </div>
+                            <div class="tags">
+                                <span>Thương hiệu quốc tế</span>
+                                <span>Hiện đại</span>
+                                <span>Hồ bơi vô cực</span>
+                            </div>
+                        </div>
+                        <div class="card-price">
+                            <div class="price">2.450.000 VND</div>
+                            <div class="room-info">Standard Room…<br>Gồm ăn sáng</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Item 2 -->
+                <section class="listing-item">
+                    <div class="listing-card" onclick="window.location.href='datphong.html'" style="cursor: pointer;">
+                        <div class="card-image">
+                            <img src="img/diadiem/kha.png" alt="Premier Residences Phú Quốc">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="hotel-name">Premier Residences Phú Quốc Emerald Bay</h3>
+                            <div class="rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="score">9.7</span>
+                                <span>(839 đánh giá)</span>
+                            </div>
+                            <div class="address">
+                                Thị Trấn An Thới, Huyện Phú Quốc – <a href="#">Xem bản đồ</a>
+                            </div>
+                            <div class="tags">
+                                <span>Thương hiệu quốc tế</span>
+                                <span>Hiện đại</span>
+                                <span>Hồ bơi vô cực</span>
+                            </div>
+                        </div>
+                        <div class="card-price">
+                            <div class="price">2.450.000 VND</div>
+                            <div class="room-info">Standard Room…<br>Gồm ăn sáng</div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section class="listing-item">
+                    <div class="listing-card" onclick="window.location.href='datphong.html'" style="cursor: pointer;">
+                        <div class="card-image">
+                            <img src="img/diadiem/kha.png" alt="Premier Residences Phú Quốc">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="hotel-name">Premier Residences Phú Quốc Emerald Bay</h3>
+                            <div class="rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="score">9.7</span>
+                                <span>(839 đánh giá)</span>
+                            </div>
+                            <div class="address">
+                                Thị Trấn An Thới, Huyện Phú Quốc – <a href="#">Xem bản đồ</a>
+                            </div>
+                            <div class="tags">
+                                <span>Thương hiệu quốc tế</span>
+                                <span>Hiện đại</span>
+                                <span>Hồ bơi vô cực</span>
+                            </div>
+                        </div>
+                        <div class="card-price">
+                            <div class="price">2.450.000 VND</div>
+                            <div class="room-info">Standard Room…<br>Gồm ăn sáng</div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section class="listing-item">
+                    <div class="listing-card" onclick="window.location.href='datphong.html'" style="cursor: pointer;">
+                        <div class="card-image">
+                            <img src="img/diadiem/kha.png" alt="Premier Residences Phú Quốc">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="hotel-name">Premier Residences Phú Quốc Emerald Bay</h3>
+                            <div class="rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="score">9.7</span>
+                                <span>(839 đánh giá)</span>
+                            </div>
+                            <div class="address">
+                                Thị Trấn An Thới, Huyện Phú Quốc – <a href="#">Xem bản đồ</a>
+                            </div>
+                            <div class="tags">
+                                <span>Thương hiệu quốc tế</span>
+                                <span>Hiện đại</span>
+                                <span>Hồ bơi vô cực</span>
+                            </div>
+                        </div>
+                        <div class="card-price">
+                            <div class="price">2.450.000 VND</div>
+                            <div class="room-info">Standard Room…<br>Gồm ăn sáng</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="listing-item">
+                    <div class="listing-card" onclick="window.location.href='datphong.html'" style="cursor: pointer;">
+                        <div class="card-image">
+                            <img src="img/diadiem/kha.png" alt="Premier Residences Phú Quốc">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="hotel-name">Premier Residences Phú Quốc Emerald Bay</h3>
+                            <div class="rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="score">9.7</span>
+                                <span>(839 đánh giá)</span>
+                            </div>
+                            <div class="address">
+                                Thị Trấn An Thới, Huyện Phú Quốc – <a href="#">Xem bản đồ</a>
+                            </div>
+                            <div class="tags">
+                                <span>Thương hiệu quốc tế</span>
+                                <span>Hiện đại</span>
+                                <span>Hồ bơi vô cực</span>
+                            </div>
+                        </div>
+                        <div class="card-price">
+                            <div class="price">2.450.000 VND</div>
+                            <div class="room-info">Standard Room…<br>Gồm ăn sáng</div>
+                        </div>
+                    </div>
+                </section>
+
+
+            </section>
+
+            </section>
+
+
+    </main>
+
+    <!-- footer -->
+    <footer class="footer bg-light pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <!-- Cột 1: Về KTS -->
+                <div class="col-6 col-md-3 mb-4">
+                    <h5 class="footer-heading">Về KTS</h5>
+                    <ul class="list-unstyled footer-list">
+                        <li><a href="#ve-chung-toi">Về chúng tôi</a></li>
+                        <li><a href="#lien-he">Liên hệ chúng tôi</a></li>
+                        <li><a href="#tro-giup">Trợ giúp</a></li>
+                        <li><a href="#tuyen-dung">Tuyển dụng</a></li>
+                    </ul>
+                </div>
+
+                <!-- Cột 2: Sản phẩm -->
+                <div class="col-6 col-md-3 mb-4">
+                    <h5 class="footer-heading">Sản phẩm</h5>
+                    <ul class="list-unstyled footer-list">
+                        <li><a href="#khach-san">Khách sạn</a></li>
+                        <li><a href="#tours">Tours</a></li>
+                        <li><a href="#vui-choi">Vui chơi</a></li>
+                    </ul>
+                </div>
+
+                <!-- Cột 3: Theo dõi chúng tôi -->
+                <div class="col-6 col-md-3 mb-4">
+                    <h5 class="footer-heading">Theo dõi chúng tôi tại</h5>
+                    <div class="d-flex align-items-center">
+                        <!-- Icon Facebook -->
+                        <a href="https://www.facebook.com/tenPage"
+                           target="_blank"
+                           class="me-3 social-icon"
+                           aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <!-- Icon YouTube -->
+                        <a href="https://www.youtube.com/tenKenh"
+                           target="_blank"
+                           class="me-3 social-icon"
+                           aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <!-- Nếu cần thêm icon khác, copy block phía trên và thay class/icon tương ứng -->
+                    </div>
+                </div>
+
+                <!-- Cột 4: Kênh thanh toán -->
+                <div class="col-6 col-md-3 mb-4">
+                    <h5 class="footer-heading">Kênh thanh toán</h5>
+                    <div class="d-flex flex-wrap align-items-center payment-icons">
+                        <!-- Mỗi logo thanh toán có thể là <img> hoặc <i> nếu bạn dùng font/icon kit -->
+                        <!-- Ở đây giả sử bạn có file ảnh nhỏ nằm ở /img/payments/visa.png, mastercard.png, ... -->
+                        <img src="#"
+                             alt="Visa"
+                             class="#" />
+                        <img src="#"
+                             alt="MasterCard"
+                             class="me-2 mb-2 payment-icon" />
+                        <img src="#"
+                             alt="American Express"
+                             class="me-2 mb-2 payment-icon" />
+                        <img src="#"
+                             alt="PayPal"
+                             class="me-2 mb-2 payment-icon" />
+                        <img src="#"
+                             alt="JCB"
+                             class="#" />
+                        <img src="#"
+                             alt="UnionPay"
+                             class="me-2 mb-2 payment-icon" />
+                        <!-- Thêm hoặc bớt logo khác theo thực tế -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- (Nếu muốn) có thể thêm copyright hoặc dòng bản quyền ở đây -->
+            <!--
+            <div class="row mt-4">
+              <div class="col text-center">
+                <p class="mb-0 text-muted">&copy; 2025 KTS Travel. All rights reserved.</p>
+              </div>
+            </div>
+            -->
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Flatpickr CSS -->
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+    <script src="/js/search.js"></script>
+
+
+
+
+</body>
+</html>

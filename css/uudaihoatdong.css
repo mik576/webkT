@@ -1,0 +1,219 @@
+﻿/* ======================================================
+   Section Activities: Các hoạt động nổi bật
+   ====================================================== */
+#activitiesSection {
+    padding: 60px 0;
+    background-color: #f9fafb;
+}
+
+    /* Tiêu đề lớn */
+    #activitiesSection h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 40px;
+        color: #1a1a1a;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+
+    /* ======================================================
+   Nhóm button toggle dạng pill
+   ====================================================== */
+    #activitiesSection .activities-toggle {
+        display: inline-flex;
+        border-radius: 50px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+        margin-bottom: 50px;
+    }
+
+        #activitiesSection .activities-toggle .btn {
+            padding: 0.6rem 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #4a4a4a;
+            background-color: transparent;
+            border: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+            #activitiesSection .activities-toggle .btn:first-child {
+                border-top-left-radius: 50px;
+                border-bottom-left-radius: 50px;
+            }
+
+            #activitiesSection .activities-toggle .btn:last-child {
+                border-top-right-radius: 50px;
+                border-bottom-right-radius: 50px;
+            }
+
+            /* Nút active */
+            #activitiesSection .activities-toggle .btn.active {
+                background-color: #C4E538; /* Xanh chuối */
+                color: #1a1a1a;
+            }
+
+            /* Hover trên các nút chưa active */
+            #activitiesSection .activities-toggle .btn:not(.active):hover {
+                background-color: #f0f0f0;
+                color: #333333;
+            }
+
+    /* ======================================================
+   Lưới card: căn giữa khi chỉ 2 card
+   ====================================================== */
+    #activitiesSection .row.g-4 {
+        row-gap: 32px;
+        column-gap: 24px;
+        justify-content: center; /* Căn giữa khi không đủ 3 cột */
+    }
+
+    /* ======================================================
+   Mỗi card
+   ====================================================== */
+    #activitiesSection .activity-card {
+        display: block;
+    }
+
+    /* Card chính */
+    #activitiesSection .card {
+        border: none;
+        border-radius: 12px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden;
+    }
+
+        /* Hover card */
+        #activitiesSection .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+    /* Ảnh trên cùng (card-img-top) */
+    #activitiesSection .card-img-top {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    /* Zoom ảnh khi hover card */
+    #activitiesSection .card:hover .card-img-top {
+        transform: scale(1.05);
+    }
+
+    /* Container ảnh để có thể chèn overlay (nếu cần) */
+    #activitiesSection .card-img-wrapper {
+        position: relative;
+    }
+
+    /* Nếu có overlay circles (bỏ phần này nếu không cần) */
+    #activitiesSection .img-overlay-circles {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+        #activitiesSection .img-overlay-circles .circle-sm {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid #ffffff;
+            object-fit: cover;
+        }
+
+    /* Nội dung card-body */
+    #activitiesSection .card-body {
+        padding: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    /* Tiêu đề card */
+    #activitiesSection .card-title {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #1a1a1a;
+        line-height: 1.3;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Thông tin phụ (Tour • địa điểm) */
+    #activitiesSection .card-text.text-muted {
+        font-size: 0.9rem;
+        color: #6e6e73;
+        margin-bottom: 0.25rem;
+    }
+
+    /* Phần đánh giá sao */
+    #activitiesSection .card-body .fas.fa-star,
+    #activitiesSection .card-body .fas.fa-star-half-alt {
+        color: #f5c518; /* Màu vàng */
+        margin-right: 2px;
+    }
+
+    /* Số điểm & đánh giá */
+    #activitiesSection .card-body .small.text-muted {
+        margin-left: 4px;
+        font-size: 0.85rem;
+        color: #8e8e93;
+    }
+
+    /* Giá tiền */
+    #activitiesSection .card-body .price {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #C4E538; /* Xanh chuối */
+    }
+
+    /* Badge Sale */
+    #activitiesSection .card-body .sale-badge {
+        font-size: 0.75rem;
+        font-weight: 600;
+        background-color: #ff6b6b; /* Đỏ nhẹ */
+        color: #ffffff;
+        padding: 0.3em 0.6em;
+        border-radius: 0.375rem;
+    }
+
+/* ======================================================
+   Responsive
+   ====================================================== */
+@media (max-width: 992px) {
+    #activitiesSection .card-img-top {
+        height: 180px;
+    }
+
+    #activitiesSection h2 {
+        font-size: 2rem;
+        margin-bottom: 32px;
+    }
+}
+
+@media (max-width: 576px) {
+    #activitiesSection .card-img-top {
+        height: 140px;
+    }
+
+    #activitiesSection h2 {
+        font-size: 1.75rem;
+        margin-bottom: 24px;
+    }
+    /* Nếu pill-button quá dài, wrap thành 2 dòng */
+    #activitiesSection .activities-toggle {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+        #activitiesSection .activities-toggle .btn {
+            margin-bottom: 8px;
+        }
+}

@@ -1,0 +1,847 @@
+﻿/* ===== Gallery ===== */
+.hotel-img-main {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: .25rem;
+}
+
+.hotel-img-small {
+    width: 100%;
+    height: calc(50% - .5rem);
+    object-fit: cover;
+    border-radius: .25rem;
+}
+
+.hotel-thumb-img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: .25rem;
+}
+
+.thumb-more {
+    position: relative;
+    cursor: pointer;
+}
+
+    .thumb-more::after {
+        content: attr(data-count);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-weight: bold;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 4px 10px;
+        border-radius: 5px;
+        pointer-events: none;
+    }
+
+/* ===== Banana-card ===== */
+.banana-card {
+    border: 2px solid #CDE920;
+    border-radius: .5rem;
+    padding: 1rem;
+    background-color: #fff;
+}
+
+    .banana-card h6 {
+        margin-bottom: .75rem;
+        font-weight: 600;
+        color: #333;
+    }
+
+
+.banana-card {
+    padding: 1rem;
+    background-color: #fff;
+    border-top: 2px dashed #CDE920; /* đường kẻ trên */
+    border-bottom: 2px dashed #CDE920; /* đường kẻ dưới */
+    border-left: none;
+    border-right: none;
+    border-radius: .5rem; /* bo góc nếu vẫn muốn */
+}
+
+
+.map-section {
+    /* xóa border của banana-card nếu còn */
+    border: none;
+    padding: 1rem 0; /* nếu muốn khoảng cách trên/dưới */
+    background: none;
+}
+
+    .map-section h6 {
+        margin-bottom: .75rem;
+        color: #333;
+    }
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+
+    .map-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+.map-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #CDE920;
+    border-color: #CDE920;
+    color: #000;
+}
+
+    .map-btn:hover {
+        background-color: #b5d114;
+        border-color: #b5d114;
+    }
+
+/* CSS */
+.review-frame {
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    background-color: #fff;
+}
+
+.separator {
+    height: 0;
+    border-top: 1px solid #ddd;
+    width: 100%;
+}
+
+.hotel-card {
+ 
+}
+
+    .hotel-card h5 {
+        color: #333;
+    }
+
+    .hotel-card .btn-warning {
+        background-color: #ff6600;
+        border-color: #ff6600;
+    }
+
+        .hotel-card .btn-warning:hover {
+            background-color: #e65c00;
+            border-color: #e65c00;
+        }
+
+/*<!-- Cột phải: Box nổi bật -->*/
+
+/* Hộp tổng */
+.highlight-box {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Tiêu đề */
+.section-title {
+    color: #9acd32; /* xanh chuối */
+    font-weight: 600;
+}
+
+/* Icon */
+.icon-highlight {
+    color: #9acd32;
+    font-size: 1.2rem;
+}
+
+/*chọn phòng*/
+.guest-controls {
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 12px;
+    border-radius: 8px;
+    z-index: 100;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-width: 250px;
+}
+
+.guest-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+    .guest-row span:first-child {
+        flex: 1;
+    }
+
+    .guest-row button {
+        border: none;
+        background-color: #c4f500; /* Xanh chuối */
+        color: #000;
+        width: 30px;
+        height: 30px;
+        font-weight: bold;
+        border-radius: 6px;
+        font-size: 18px;
+    }
+
+    .guest-row span[id$='Count'] {
+        display: inline-block;
+        width: 30px;
+        text-align: center;
+        font-weight: 500;
+    }
+
+/* Popup chọn khách */
+.guest-controls {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    z-index: 1000;
+    display: none;
+}
+
+    .guest-controls .btn {
+        min-width: 2rem;
+    }
+
+#guestField {
+    position: relative;
+}
+
+.guest-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .5rem;
+}
+
+    .guest-row button {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        line-height: 1;
+        padding: 0;
+    }
+
+/* Giới hạn kích thước icon mũi tên Flatpickr */
+.flatpickr-prev-month svg,
+.flatpickr-next-month svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+/* Nếu muốn, giới hạn chung SVG trong Flatpickr calendar */
+.flatpickr-calendar svg {
+    width: 16px;
+    height: 16px;
+}
+
+/*dat phong*/
+
+/* ==============================
+   Biến toàn cục (tuỳ chỉnh theo theme)
+   ============================== */
+:root {
+    --section-bg: #f8f9fa;
+    --section-border: #dee2e6;
+    --card-border: #e0e0e0;
+    --card-radius: 0.75rem;
+    --card-shadow: rgba(0, 0, 0, 0.08);
+    --card-shadow-hover: rgba(0, 0, 0, 0.15);
+    --primary-color: #0d6efd; /* Bootstrap primary */
+    --danger-color: #dc3545;
+    --success-color: #28a745;
+    --discount-bg: #ffdd57;
+    --text-muted: #6c757d;
+    --text-dark: #212529;
+    --font-size-base: 0.9rem;
+    --font-size-small: 0.75rem;
+    --font-size-large: 1.25rem;
+}
+
+/* ==============================
+   Section bao quanh
+   ============================== */
+#roomsSection {
+
+    border-radius: 0.5rem;
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+}
+
+    /* Header section: tiêu đề + filter */
+    #roomsSection .section-header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--section-border);
+        padding-bottom: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+        #roomsSection .section-header h4 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        #roomsSection .section-header .filter-group {
+            margin-top: 0.5rem;
+        }
+
+@media (min-width: 576px) {
+    #roomsSection .section-header .filter-group {
+        margin-top: 0;
+    }
+}
+
+/* ==============================
+   Room card cơ bản
+   ============================== */
+.room-card {
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: 0 2px 6px var(--card-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .room-card:hover {
+        box-shadow: 0 4px 12px var(--card-shadow-hover);
+        transform: translateY(-3px);
+    }
+
+    /* ==============================
+   Carousel ảnh
+   ============================== */
+    .room-card .carousel {
+        position: relative;
+    }
+        /* Container giữ tỉ lệ 16:9 hoặc 4:3 tuỳ bạn. Dùng padding-top hack aspect-ratio */
+        .room-card .carousel .carousel-inner {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+            /* Cách giữ tỉ lệ 16:9: wrapper với padding-top: 56.25% */
+            .room-card .carousel .carousel-inner::before {
+                content: "";
+                display: block;
+                padding-top: 56.25%; /* 16:9. Nếu muốn 4:3, dùng 75% */
+            }
+
+            .room-card .carousel .carousel-inner .carousel-item {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            .room-card .carousel .carousel-inner img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+
+    /* Controls (prev/next) để luôn hiển thị trên ảnh */
+    .room-card .carousel-control-prev,
+    .room-card .carousel-control-next {
+        width: 2rem;
+        height: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0,0,0,0.3);
+        border-radius: 50%;
+    }
+
+    .room-card .carousel-control-prev-icon,
+    .room-card .carousel-control-next-icon {
+        filter: invert(100%);
+        width: 1rem;
+        height: 1rem;
+    }
+    /* Thêm hiệu ứng semi-transparent background khi hover */
+    .room-card .carousel-control-prev:hover,
+    .room-card .carousel-control-next:hover {
+        background-color: rgba(0,0,0,0.5);
+    }
+
+    /* Badge số ảnh góc trên cùng bên phải */
+    .room-card .carousel .image-count-badge {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        background-color: rgba(0,0,0,0.6);
+        color: #fff;
+        font-size: var(--font-size-small);
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.5rem;
+    }
+
+    /* ==============================
+   Nội dung card
+   ============================== */
+    .room-card .card-content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        padding: 1rem;
+    }
+
+        /* Tiêu đề phòng */
+        .room-card .card-content h6 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+    /* Danh sách tiện nghi */
+    .room-card .amenities {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 0.75rem 0;
+    }
+
+        .room-card .amenities li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.4rem;
+            font-size: var(--font-size-base);
+            color: var(--text-dark);
+        }
+
+            .room-card .amenities li:last-child {
+                margin-bottom: 0;
+            }
+
+            .room-card .amenities li i {
+                margin-right: 0.5rem;
+                font-size: 1.1rem;
+                color: var(--success-color);
+            }
+
+    /* Chính sách hủy */
+    .room-card .policy {
+        margin-bottom: 0.75rem;
+        font-size: var(--font-size-base);
+    }
+
+        .room-card .policy .refundable {
+            color: var(--success-color);
+        }
+
+        .room-card .policy .non-refundable {
+            color: var(--danger-color);
+        }
+
+        .room-card .policy i {
+            margin-left: 0.25rem;
+            font-size: 0.9rem;
+        }
+
+    /* Link “Xem thêm chi tiết” */
+    .room-card .detail-link {
+        font-size: var(--font-size-base);
+        text-decoration: none;
+        color: var(--primary-color);
+        margin-bottom: 0.75rem;
+    }
+
+        .room-card .detail-link:hover {
+            text-decoration: underline;
+        }
+
+    /* ==============================
+   Phần giá & nút
+   ============================== */
+    .room-card .pricing {
+        margin-top: auto; /* đẩy xuống đáy */
+    }
+
+    .room-card .discount-badge {
+        background-color: var(--discount-bg);
+        color: var(--text-dark);
+        font-size: var(--font-size-small);
+        display: inline-flex;
+        align-items: center;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+        .room-card .discount-badge i {
+            margin-right: 0.3rem;
+            font-size: 1rem;
+        }
+
+    /* Giá cũ & giá mới */
+    .room-card .price-row {
+        display: flex;
+        align-items: baseline;
+        margin-bottom: 0.25rem;
+    }
+
+    .room-card .price-old {
+        text-decoration: line-through;
+        color: var(--text-muted);
+        font-size: var(--font-size-small);
+        margin-right: 0.5rem;
+    }
+
+    .room-card .price-new {
+        font-size: var(--font-size-large);
+        font-weight: 600;
+        color: var(--danger-color);
+    }
+
+    /* Chú thích giá */
+    .room-card .price-note {
+        font-size: var(--font-size-small);
+        color: var(--text-muted);
+        margin-bottom: 0.5rem;
+    }
+
+    /* Chỉ còn phòng */
+    .room-card .rooms-left {
+        font-size: var(--font-size-base);
+        color: var(--danger-color);
+        margin-bottom: 0.5rem;
+    }
+
+    /* Nút Đặt */
+    .room-card .btn-book {
+        width: 100%;
+        font-size: var(--font-size-base);
+        padding: 0.5rem;
+        /* Sử dụng Bootstrap primary */
+    }
+
+        .room-card .btn-book:hover {
+            filter: brightness(0.9);
+        }
+
+/* ==============================
+   Responsive tweaks (nếu cần)
+   ============================== */
+/* Trên màn nhỏ hơn, có thể giảm padding nội dung */
+@media (max-width: 576px) {
+    .room-card .card-content {
+        padding: 0.75rem;
+    }
+}
+/* Trên màn >1200px, tăng chiều cao ảnh */
+@media (min-width: 1200px) {
+    .room-card .carousel .carousel-inner::before {
+        /* ví dụ 3:2 ratio */
+        padding-top: 66.66%;
+    }
+}
+
+
+    #roomsSection .section-header {
+        border-bottom: 1px solid #dee2e6;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+.room-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+    .room-card:hover {
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        transform: translateY(-2px);
+    }
+
+    .room-card .carousel-inner img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .room-card .amenities {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        .room-card .amenities li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.25rem;
+            font-size: 0.9rem;
+        }
+
+            .room-card .amenities li i {
+                margin-right: 0.5rem;
+                font-size: 1rem;
+            }
+
+    .room-card .discount-badge {
+        background-color: #ffdd57;
+        color: #333;
+        font-size: 0.85rem;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .room-card .price-old {
+        text-decoration: line-through;
+        color: #888;
+        font-size: 0.85rem;
+        margin-right: 0.5rem;
+    }
+
+    .room-card .price-new {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #d32f2f;
+    }
+
+    .room-card .price-note {
+        font-size: 0.75rem;
+        color: #666;
+    }
+
+    .room-card .rooms-left {
+        font-size: 0.85rem;
+        color: #d32f2f;
+        margin-top: 0.25rem;
+    }
+
+    .room-card .btn-book {
+        margin-top: auto;
+        width: 100%;
+    }
+
+    .room-card .detail-link {
+        font-size: 0.9rem;
+        text-decoration: none;
+    }
+
+        .room-card .detail-link:hover {
+            text-decoration: underline;
+        }
+
+.btn-primary {
+    background-color: #ADFF2F;
+    border-color: #ADFF2F;
+    color: #212529; /* text màu đen hoặc tuỳ chọn sao cho đủ tương phản */
+}
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+        background-color: #9BE000; /* chút tối hơn khi hover */
+        border-color: #9BE000;
+    }
+
+    .btn-primary:active {
+        background-color: #88C800;
+        border-color: #88C800;
+    }
+
+/*danh gia*/
+/* === Tổng quan section === */
+/* =============================
+   Summary cards style
+   ============================= */
+.summary-card {
+    background-color: #f8f9fa; /* màu nền nhạt cho phân vùng */
+    border: 1px solid #e0e0e0; /* border nhẹ */
+    border-radius: 0.5rem; /* bo góc */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+    .summary-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    /* Đảm bảo nội dung bên trong liên tục, nếu dài sẽ scroll hoặc wrap */
+    .summary-card h6 {
+        font-size: 1.125rem;
+        color: #212529;
+    }
+
+    .summary-card p {
+        color: #343a40;
+        line-height: 1.4;
+    }
+/* Nếu có phần footer hoặc nút bên dưới, d-flex flex-column + flex-grow-1 p giúp đẩy phần chân xuống đáy */
+
+/* =============================
+   Cải thiện phần Rating tổng quan
+   ============================= */
+#reviewsSection .display-4 {
+    font-size: 2.5rem; /* lớn hơn chút nếu muốn */
+    color: #212529;
+}
+/* Hiển thị sao: ta tạo class star-rating */
+.star-rating {
+    display: inline-block;
+    font-size: 1rem;
+    color: #ffc107; /* màu vàng */
+}
+    /* Ví dụ: dùng icon Bootstrap Icons: bi-star-fill hoặc bi-star-half hoặc bi-star */
+    .star-rating i {
+        margin-right: 0.1rem;
+    }
+/* Ví dụ style cho phần text “Rất tốt” */
+#reviewsSection .fw-semibold {
+    color: #212529;
+}
+
+/* =============================
+   Style progress bar
+   ============================= */
+#reviewsSection .progress {
+    background-color: #e9ecef;
+    height: 8px; /* cao hơn để nhìn rõ */
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#reviewsSection .progress-bar {
+    background-color: #ffc107; /* vàng */
+}
+
+/* =============================
+   Style filter buttons
+   ============================= */
+#filterButtons .btn {
+    font-size: 0.9rem;
+}
+
+    #filterButtons .btn.active {
+        background-color: #0d6efd;
+        color: #fff;
+    }
+
+    #filterButtons .btn:not(.active):hover {
+        background-color: #e7f1ff;
+    }
+
+/* =============================
+   Style review cards
+   ============================= */
+.review-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+    .review-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .review-card .review-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+    }
+
+        .review-card .review-header .author {
+            font-weight: 500;
+            font-size: 1rem;
+            color: #212529;
+        }
+
+        .review-card .review-header .rating {
+            font-size: 0.9rem;
+            color: #ffc107;
+        }
+
+        .review-card .review-header .date {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-left: 0.5rem;
+        }
+
+    .review-card .review-tags .badge {
+        font-size: 0.75rem;
+        margin-right: 0.25rem;
+    }
+
+    .review-card .review-body {
+        flex-grow: 1;
+        font-size: 0.9rem;
+        color: #343a40;
+        margin-bottom: 0.5rem;
+        overflow: hidden;
+    }
+
+    .review-card .review-footer {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+        .review-card .review-footer i {
+            cursor: pointer;
+            color: #6c757d;
+            font-size: 1.1rem;
+        }
+
+            .review-card .review-footer i:hover {
+                color: #0d6efd;
+            }
+
+/* =============================
+   Style carousel controls (Reviews)
+   ============================= */
+#reviewsCarousel .carousel-control-prev,
+#reviewsCarousel .carousel-control-next {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 50%;
+}
+
+#reviewsCarousel .carousel-control-prev-icon,
+#reviewsCarousel .carousel-control-next-icon {
+    filter: invert(50%);
+}

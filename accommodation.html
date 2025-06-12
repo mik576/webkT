@@ -1,0 +1,461 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KTS Travel</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+          rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+          rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+
+
+
+    <!-- Link đến file CSS riêng (ở đây giả sử đặt tên head.css) -->
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/accommodation.css" />
+</head>
+
+<body>
+
+    <!-- ===== Header: Navbar + Menu ===== -->
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="/img/logo/KTS_TV_Logo_2.png"
+                         alt="KTS Travel"
+                         class="logo-img-kts" />
+                </a>
+
+                <!-- Toggle button (cho mobile) -->
+                <button class="navbar-toggler border-0"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarContent"
+                        aria-controls="navbarContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Nội dung Navbar -->
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <!-- Search Box -->
+                    <form class="d-flex ms-lg-4 me-lg-auto my-2 my-lg-0" role="search">
+                        <div class="input-group search-box-kts">
+                            <input type="text"
+                                   class="form-control search-input-kts"
+                                   placeholder="Tìm theo điểm đến" />
+                            <button class="btn btn-outline-secondary search-btn-kts" type="submit">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Nhóm tài khoản & ngôn ngữ -->
+                    <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-3">
+                        <!-- Dropdown ngôn ngữ -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center p-0"
+                               href="#"
+                               id="dropdownLang"
+                               role="button"
+                               data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                <img src="https://flagcdn.com/w20/vn.png"
+                                     alt="VN"
+                                     class="flag-img-kts me-1" />
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownLang">
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="?lang=vi">
+                                        <img src="https://flagcdn.com/w20/vn.png" class="me-2" />
+                                        Tiếng Việt
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="?lang=en">
+                                        <img src="https://flagcdn.com/w20/us.png" class="me-2" />
+                                        English
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="?lang=jp">
+                                        <img src="https://flagcdn.com/w20/jp.png" class="me-2" />
+                                        日本語
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Trợ giúp, xem gần đây, đăng ký, đăng nhập -->
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="/help">Trợ giúp</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="/recent">xem gần đây</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="/register">Đăng ký</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-success btn-sm login-btn-kts ms-2" href="/login.html">Đăng nhập</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Divider (dòng ngăn cách) -->
+        <hr class="divider-kts m-0" />
+
+        <!-- Menu full-width bên dưới Navbar -->
+        <nav class="menu-kts-fullwidth">
+            <div class="container d-flex justify-content-center gap-4 py-2">
+                <a href="#" class="menu-item-kts">trải nghiệm</a>
+                <a href="#" class="menu-item-kts">khách sạn</a>
+                <a href="#" class="menu-item-kts">Tour</a>
+                <a href="#" class="menu-item-kts">Khám phá KTSTRAVEL</a>
+            </div>
+        </nav>
+    </header>
+
+<section class="banner">
+  <div class="banner-overlay">
+    <h1>Khách sạn</h1>
+    <p>Tận hưởng những địa điểm trong mơ</p>
+  </div>
+    
+<div class="search-wrapper">
+  <form class="search-box search-grid" id="searchForm">
+    <!-- Địa điểm -->
+    <div class="search-item field" id="locationField">
+      <input type="text" id="location" placeholder="Địa điểm" autocomplete="off" />
+    </div>
+
+<!-- Ngày nhận / trả phòng -->
+<div class="search-item field" id="dateField">
+  <input type="text" id="dateRange" placeholder="Ngày nhận / Trả phòng" readonly />
+</div>
+
+    <!-- Khách & phòng -->
+    <div class="search-item field guest-field" id="guestField">
+      <input type="text" id="guestsDisplay" placeholder="Số khách và phòng" readonly />
+    </div>
+
+    <!-- Nút tìm kiếm -->
+    <button type="submit" class="btn-search">Tìm kiếm</button>
+  </form>
+</div>
+
+
+
+</section>
+
+    <!-- Nếu trang còn nội dung khác, đặt bên dưới banner -->
+<main class="container my-5">
+        <section class="travel-benefits py-5">
+  <div class="container">
+    <div class="row text-center text-md-start">
+      
+      <!-- Ưu đãi đặc biệt -->
+      <div class="col-md-4 mb-4">
+        <div class="d-flex align-items-start">
+          <img src="/img/icons/1.png" alt="Ưu đãi đặc biệt" class="me-3" width="48" height="48" />
+          <div>
+            <h5 class="fw-bold mb-1">Ưu đãi đặc biệt</h5>
+            <p class="mb-0">Nhận mức giá hấp dẫn và tìm những deal khuyến mãi phù hợp với bạn.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hỗ trợ khách hàng -->
+      <div class="col-md-4 mb-4">
+        <div class="d-flex align-items-start">
+          <img src="/img/icons/2.png" alt="Hỗ trợ khách hàng" class="me-3" width="48" height="48" />
+          <div>
+            <h5 class="fw-bold mb-1">Hỗ trợ khách hàng <br> 24/7</h5>
+            <p class="mb-0">Chúng tôi luôn có mặt ở đây khi bạn cần.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nền tảng du lịch One-stop -->
+      <div class="col-md-4 mb-4">
+        <div class="d-flex align-items-start">
+          <img src="/img/icons/3.png" alt="One-stop" class="me-3" width="48" height="48" />
+          <div>
+            <h5 class="fw-bold mb-1">Nền tảng du lịch One-stop</h5>
+            <p class="mb-0">Dịch vụ của chúng tôi hỗ trợ 23 ngôn ngữ và 42 loại tiền tệ cùng đa dạng phương thức thanh toán.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!--menu thịnh hành -->
+
+<section class="popular-destinations py-5">
+  <div class="container">
+    <h2 class="fw-bold mb-2">Điểm đến đang thịnh hành</h2>
+    <p class="text-muted mb-4">Các lựa chọn phổ biến nhất cho du khách từ Việt Nam</p>
+
+    <div class="row g-3">
+      <div class="col-md-6">
+         <a href="lisshotel.html" class="destination-card-link">
+    <div class="destination-card">
+      <img src="/img/diadiem/nhatrang.png" alt="Nha Trang">
+      <h4>Nha Trang</h4>
+    </div>
+        </a>
+    </div>
+
+      <!-- Đà Nẵng -->
+      <div class="col-md-6">
+
+          <a href="lisshotel.html" class="destination-card-link">
+        <div class="destination-card">
+          <img src="/img/diadiem/danang.png" alt="Đà Nẵng">
+          <h4>Đà Nẵng </h4>
+        </div>
+               </a>
+      </div>
+
+      <!-- Vũng Tàu -->
+      <div class="col-md-4">
+          <a href="lisshotel.html" class="destination-card-link">
+        <div class="destination-card">
+          <img src="/img/diadiem/vungtau.png" alt="Vũng Tàu">
+          <h4>Vũng Tàu 🇻🇳</h4>
+        </div>
+               </a>
+      </div>
+
+      <!-- Hà Nội -->
+      <div class="col-md-4">
+          <a href="lisshotel.html" class="destination-card-link">
+        <div class="destination-card">
+          <img src="/img/diadiem/hanoi.png" alt="Hà Nội">
+          <h4>Hà Nội 🇻🇳</h4>
+        </div>
+               </a>
+      </div>
+
+      <!-- Đà Lạt -->
+      <div class="col-md-4">
+          <a href="lisshotel.html" class="destination-card-link">
+        <div class="destination-card">
+          <img src="/img/diadiem/datlat.png" alt="Đà Lạt">
+          <h4>Đà Lạt 🇻🇳</h4>
+        </div>
+             </a>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+<!--khám phá việt nam -->
+<section class="py-5">
+  <div class="container">
+    <!-- Tiêu đề -->
+    <div class="text-center mb-4">
+      <h2 class="fw-bold">Khám phá Việt Nam</h2>
+      <p class="text-muted">Các điểm đến phổ biến này có nhiều điều chờ đón bạn</p>
+    </div>
+
+    <!-- Carousel nhiều item -->
+    <div id="destinationsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#destinationsCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bg-dark rounded-circle p-2"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#destinationsCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon bg-dark rounded-circle p-2"></span>
+      </button>
+
+      <!-- Wrapper cho các item -->
+      <div class="carousel-inner">
+        <!-- Mỗi .carousel-item chứa 4 card (hoặc tuỳ số bạn muốn hiển thị) -->
+        <div class="carousel-item active">
+          <div class="row g-3">
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card border-0 shadow-sm">
+                <img src="/img/diadiem/danang.png" class="card-img-top rounded-3" alt="Đà Lạt">
+                <div class="card-body py-2 px-1 text-center">
+                  <h6 class="card-title mb-1">Đà Lạt</h6>
+                  <p class="text-secondary small mb-0">1.876 chỗ nghỉ</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card border-0 shadow-sm">
+                <img src="/img/diadiem/danang.png" class="card-img-top rounded-3" alt="Nha Trang">
+                <div class="card-body py-2 px-1 text-center">
+                  <h6 class="card-title mb-1">Nha Trang</h6>
+                  <p class="text-secondary small mb-0">1.067 chỗ nghỉ</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card border-0 shadow-sm">
+                <img src="/img/diadiem/danang.png" class="card-img-top rounded-3" alt="Huế">
+                <div class="card-body py-2 px-1 text-center">
+                  <h6 class="card-title mb-1">Huế</h6>
+                  <p class="text-secondary small mb-0">595 chỗ nghỉ</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 d-none d-lg-block">
+              <div class="card border-0 shadow-sm">
+                <img src="/img/diadiem/danang.png" class="card-img-top rounded-3" alt="Hội An">
+                <div class="card-body py-2 px-1 text-center">
+                  <h6 class="card-title mb-1">Hội An</h6>
+                  <p class="text-secondary small mb-0">1.017 chỗ nghỉ</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 d-none d-xl-block">
+              <div class="card border-0 shadow-sm">
+                <img src="/img/diadiem/danang.png" class="card-img-top rounded-3" alt="Cần Thơ">
+                <div class="card-body py-2 px-1 text-center">
+                  <h6 class="card-title mb-1">Cần Thơ</h6>
+                  <p class="text-secondary small mb-0">367 chỗ nghỉ</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 d-none d-xxl-block">
+              <div class="card border-0 shadow-sm">
+                <img src="/img/diadiem/danang.png" class="card-img-top rounded-3" alt="Quy Nhơn">
+                <div class="card-body py-2 px-1 text-center">
+                  <h6 class="card-title mb-1">Quy Nhơn</h6>
+                  <p class="text-secondary small mb-0">664 chỗ nghỉ</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Bạn có thể thêm thêm carousel-item nếu có nhiều hơn 6 điểm -->
+      </div>
+    </div>
+  </div>
+    </section>
+ </main>
+
+    <!-- footer -->
+    <footer class="footer bg-light pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <!-- Cột 1: Về KTS -->
+                <div class="col-6 col-md-3 mb-4">
+                    <h5 class="footer-heading">Về KTS</h5>
+                    <ul class="list-unstyled footer-list">
+                        <li><a href="#ve-chung-toi">Về chúng tôi</a></li>
+                        <li><a href="#lien-he">Liên hệ chúng tôi</a></li>
+                        <li><a href="#tro-giup">Trợ giúp</a></li>
+                        <li><a href="#tuyen-dung">Tuyển dụng</a></li>
+                    </ul>
+                </div>
+
+                <!-- Cột 2: Sản phẩm -->
+                <div class="col-6 col-md-3 mb-4">
+                    <h5 class="footer-heading">Sản phẩm</h5>
+                    <ul class="list-unstyled footer-list">
+                        <li><a href="#khach-san">Khách sạn</a></li>
+                        <li><a href="#tours">Tours</a></li>
+                        <li><a href="#vui-choi">Vui chơi</a></li>
+                    </ul>
+                </div>
+
+                <!-- Cột 3: Theo dõi chúng tôi -->
+                <div class="col-6 col-md-3 mb-4">
+                    <h5 class="footer-heading">Theo dõi chúng tôi tại</h5>
+                    <div class="d-flex align-items-center">
+                        <!-- Icon Facebook -->
+                        <a href="https://www.facebook.com/tenPage"
+                           target="_blank"
+                           class="me-3 social-icon"
+                           aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <!-- Icon YouTube -->
+                        <a href="https://www.youtube.com/tenKenh"
+                           target="_blank"
+                           class="me-3 social-icon"
+                           aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <!-- Nếu cần thêm icon khác, copy block phía trên và thay class/icon tương ứng -->
+                    </div>
+                </div>
+
+                <!-- Cột 4: Kênh thanh toán -->
+                <div class="col-6 col-md-3 mb-4">
+                    <h5 class="footer-heading">Kênh thanh toán</h5>
+                    <div class="d-flex flex-wrap align-items-center payment-icons">
+                        <!-- Mỗi logo thanh toán có thể là <img> hoặc <i> nếu bạn dùng font/icon kit -->
+                        <!-- Ở đây giả sử bạn có file ảnh nhỏ nằm ở /img/payments/visa.png, mastercard.png, ... -->
+                        <img src="#"
+                             alt="Visa"
+                             class="#" />
+                        <img src="#"
+                             alt="MasterCard"
+                             class="me-2 mb-2 payment-icon" />
+                        <img src="#"
+                             alt="American Express"
+                             class="me-2 mb-2 payment-icon" />
+                        <img src="#"
+                             alt="PayPal"
+                             class="me-2 mb-2 payment-icon" />
+                        <img src="#"
+                             alt="JCB"
+                             class="#" />
+                        <img src="#"
+                             alt="UnionPay"
+                             class="me-2 mb-2 payment-icon" />
+                        <!-- Thêm hoặc bớt logo khác theo thực tế -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- (Nếu muốn) có thể thêm copyright hoặc dòng bản quyền ở đây -->
+            <!--
+            <div class="row mt-4">
+              <div class="col text-center">
+                <p class="mb-0 text-muted">&copy; 2025 KTS Travel. All rights reserved.</p>
+              </div>
+            </div>
+            -->
+        </div>
+    </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Flatpickr CSS -->
+
+
+<!-- Flatpickr JS -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    
+
+ <script src="/js/search.js"></script>
+<script src="/js/indexmain.js"></script>
+
+
+
+</body>
+</html>

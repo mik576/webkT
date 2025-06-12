@@ -1,0 +1,604 @@
+﻿    /* === CONTAINER VÀ GRID LAYOUT === */
+    .search-wrapper {
+        position: static; /* không còn absolute nữa */
+        width: 100%;
+        max-width: 1200px;
+        margin: 2rem auto; /* đẩy xuống và căn giữa trong main */
+        padding: 0 1rem;
+    }
+
+
+    /* 2. Giữ box style nếu muốn */
+    .search-box {
+        background: #fff;
+        border-radius: 24px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        padding: 12px;
+    }
+
+    /* 3. Grid layout như trước */
+    .search-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 12px;
+        align-items: center;
+    }
+
+
+    /* ITEM CHUNG */
+    .search-box .search-item {
+        position: relative;
+    }
+
+    /* INPUT CHUNG */
+    .search-box input {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 1rem;
+        color: #333;
+        background: #f9f9f9;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        outline: none;
+        transition: border-color .2s;
+    }
+
+        .search-box input:focus {
+            border-color: #c0ff00;
+        }
+
+        .search-box input::placeholder {
+            color: #999;
+        }
+
+    /* NÚT TÌM KIẾM */
+    .btn-search {
+        padding: 12px 24px;
+        font-size: 1rem;
+        font-weight: 500;
+        background-color: #c0ff00;
+        color: #222;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color .3s;
+    }
+
+        .btn-search:hover {
+            background-color: #a0e600;
+        }
+
+    /* DROPDOWN LOCATION */
+    .location-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        max-height: 200px;
+        overflow-y: auto;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        z-index: 20;
+    }
+
+    .location-item {
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+
+        .location-item:hover {
+            background: #f5f5f5;
+        }
+
+    /* DROPDOWN GUESTS */
+    .guest-controls {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 12px;
+        padding: 12px;
+        width: 260px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        z-index: 20;
+    }
+
+    .guest-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+        .guest-row span:first-child {
+            flex: 1;
+            font-weight: 500;
+        }
+
+        .guest-row button {
+            width: 32px;
+            height: 32px;
+            border: 1px solid #ccc;
+            background-color: #f7f7f7;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .guest-row span[id$="Count"] {
+            width: 40px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+    /* RESPONSIVE: dưới 768px dùng 1 cột */
+    @media (max-width: 768px) {
+        .search-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .btn-search {
+            width: 100%;
+        }
+    }
+
+    .banner {
+        position: relative; /* cần có để .search-wrapper position:absolute tính toán được */
+    }
+
+    /*tao phan loaik*/
+    /* Reset cơ bản */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: sans-serif;
+        color: #333;
+        line-height: 1.4;
+    }
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+    /* Container chính */
+    .list-page {
+        display: flex;
+        gap: 24px;
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        flex: 0 0 280px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+.map-preview {
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background: none;
+}
+
+    .map-preview iframe,
+    .map-preview img {
+        display: block;
+        width: 100%;
+        height: 180px;
+        border: none;
+        margin: 0;
+        padding: 0;
+        object-fit: cover;
+    }
+
+    .map-preview .view-map {
+        display: block;
+        text-align: center;
+        background: #f8f9fa;
+        color: #007bff;
+        font-weight: 500;
+        font-size: 0.95rem;
+        padding: 10px;
+        border-top: 1px solid #ddd;
+        text-decoration: none;
+        transition: background 0.2s;
+    }
+
+        .map-preview .view-map:hover {
+            background: #e9ecef;
+            text-decoration: underline;
+        }
+
+📌 HT
+
+.search-name {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+        .search-name input {
+            flex: 1;
+            border: none;
+            padding: 8px 12px;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .search-name .icon-search {
+            padding: 8px 12px;
+            background: #f1f1f1;
+            cursor: pointer;
+        }
+
+    .filters {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .filter-group h4 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+
+    .filter-group label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 6px;
+        font-size: 0.9rem;
+        cursor: pointer;
+    }
+
+    /* Listings */
+    /* Container chính */
+    .list-page {
+        display: flex;
+        gap: 24px;
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        flex: 0 0 280px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .map-preview {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+        .map-preview img {
+            width: 100%;
+            display: block;
+        }
+
+        .map-preview .view-map {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            background: #f8f9fa;
+            color: #007bff;
+            font-weight: 500;
+        }
+
+    .search-name {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 24px;
+        overflow: hidden;
+    }
+
+        .search-name input {
+            flex: 1;
+            border: none;
+            padding: 8px 12px;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .search-name .icon-search {
+            padding: 8px 12px;
+            background: #f1f1f1;
+            cursor: pointer;
+        }
+
+    .filters {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .filter-group h4 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+
+    .filter-group label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 6px;
+        font-size: 0.9rem;
+        cursor: pointer;
+    }
+
+    /* Listings */
+    .listings {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .listing-item {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .deal-banner {
+        background: #ffe8b3;
+        color: #a65e00;
+        padding: 8px 12px;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    .listing-card {
+        display: flex;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .card-image {
+        position: relative;
+        flex: 0 0 240px;
+        overflow: hidden;
+    }
+
+        .card-image img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+        }
+
+    .ribbon {
+        position: absolute;
+        top: 12px;
+        left: -40px;
+        transform: rotate(-45deg);
+        background: #e63946;
+        color: #fff;
+        padding: 4px 60px;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+
+    .card-info {
+        flex: 1;
+        padding: 12px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .hotel-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #1a1a1a;
+    }
+
+    .rating {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.9rem;
+    }
+
+        .rating .stars {
+            color: #ffc107;
+        }
+
+        .rating .score {
+            background: #e6f4ea;
+            color: #238636;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+    .address {
+        font-size: 0.9rem;
+        color: #555;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 4px;
+    }
+
+        .tags span {
+            background: #f0f0f0;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+    .card-price {
+        flex: 0 0 140px;
+        border-left: 1px solid #ddd;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 8px;
+    }
+
+    .price {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #1a73e8;
+    }
+
+    .room-info {
+        font-size: 0.9rem;
+        color: #555;
+        text-align: right;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+        .list-page {
+            flex-direction: column;
+        }
+
+        .sidebar {
+            width: 100%;
+            flex: none;
+        }
+
+        .listings {
+            width: 100%;
+        }
+
+        .listing-card {
+            flex-direction: column;
+        }
+
+        .card-image {
+            width: 100%;
+        }
+
+        .card-price {
+            width: 100%;
+            border-left: none;
+            border-top: 1px solid #ddd;
+            align-items: flex-start;
+        }
+    }
+
+/* === Filter Groups nâng cao === */
+.sidebar .filters {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Giá mỗi đêm: thu gọn */
+/* Giá mỗi đêm – inputs nhỏ gọn */
+.price-group .price-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px; /* khoảng cách nhỏ hơn */
+}
+
+    .price-group .price-inputs input {
+        
+        font-size: 0.8rem; /* chữ nhỏ hơn */
+        border-radius: 6px; /* bo góc nhẹ */
+        height: 32px; /* cố định chiều cao */
+    }
+
+/* Slider – mảnh và nhỏ */
+.price-group .price-slider {
+    width: 100%;
+    height: 4px; /* mảnh hơn */
+    margin-top: 6px; /* cách input 1 chút */
+    background: #ddd;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+}
+
+    /* Thumb nhỏ tròn */
+    .price-group .price-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #1e88e5; /* màu xanh dương đậm như hình */
+        cursor: pointer;
+        border: 2px solid #fff;
+    }
+
+input[type="range"] {
+    background: #1e88e5;
+}
+
+/* Chrome, Safari */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #1e88e5;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #fff;
+}
+
+/* Xếp hạng sao: thu nhỏ */
+.filter-group.star-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.85rem;
+}
+
+.star-group .star-buttons {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+    .star-group .star-buttons button {
+        flex: none;
+        padding: 4px 6px;
+        font-size: 0.85rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        background: #fff;
+        cursor: pointer;
+        transition: background 0.2s, border-color 0.2s;
+    }
+
+        .star-group .star-buttons button:hover,
+        .star-group .star-buttons button.active {
+            background: #c0ff00;
+            border-color: #a0e600;
+            color: #222;
+        }

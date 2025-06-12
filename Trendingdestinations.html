@@ -1,0 +1,536 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KTS Travel</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+          rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+          rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+
+    <!-- Link đến file CSS riêng (ở đây giả sử đặt tên head.css) -->
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/Trendingdestinations.css" />
+</head>
+
+<body>
+
+    <!-- ===== Header: Navbar + Menu ===== -->
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="/img/logo/KTS_TV_Logo_2.png"
+                         alt="KTS Travel"
+                         class="logo-img-kts" />
+                </a>
+
+                <!-- Toggle button (cho mobile) -->
+                <button class="navbar-toggler border-0"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarContent"
+                        aria-controls="navbarContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Nội dung Navbar -->
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <!-- Search Box -->
+                    <form class="d-flex ms-lg-4 me-lg-auto my-2 my-lg-0" role="search">
+                        <div class="input-group search-box-kts">
+                            <input type="text"
+                                   class="form-control search-input-kts"
+                                   placeholder="Tìm theo điểm đến" />
+                            <button class="btn btn-outline-secondary search-btn-kts" type="submit">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Nhóm tài khoản & ngôn ngữ -->
+                    <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-3">
+                        <!-- Dropdown ngôn ngữ -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center p-0"
+                               href="#"
+                               id="dropdownLang"
+                               role="button"
+                               data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                <img src="https://flagcdn.com/w20/vn.png"
+                                     alt="VN"
+                                     class="flag-img-kts me-1" />
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownLang">
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="?lang=vi">
+                                        <img src="https://flagcdn.com/w20/vn.png" class="me-2" />
+                                        Tiếng Việt
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="?lang=en">
+                                        <img src="https://flagcdn.com/w20/us.png" class="me-2" />
+                                        English
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="?lang=jp">
+                                        <img src="https://flagcdn.com/w20/jp.png" class="me-2" />
+                                        日本語
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Trợ giúp, xem gần đây, đăng ký, đăng nhập -->
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="/help">Trợ giúp</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="/recent">xem gần đây</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="/register">Đăng ký</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-success btn-sm login-btn-kts ms-2" href="/login.html">Đăng nhập</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Divider (dòng ngăn cách) -->
+        <hr class="divider-kts m-0" />
+
+        <!-- Menu full-width bên dưới Navbar -->
+        <nav class="menu-kts-fullwidth">
+            <div class="container d-flex justify-content-center gap-4 py-2">
+                <a href="#" class="menu-item-kts">trải nghiệm</a>
+                <a href="accommodation.html" class="menu-item-kts">khách sạn</a>
+                <a href="#" class="menu-item-kts">Tour</a>
+                <a href="#" class="menu-item-kts">Khám phá KTSTRAVEL</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="destination-section">
+        <div class="background-blur"></div>
+        <div class="content-card">
+            <div class="text-content">
+                <div>
+                    <h2>Nha Trang</h2>
+                    <p>
+                        Nha Trang, thành phố biển nằm ở tỉnh Khánh Hoà, miền Trung Việt Nam.
+                        Thi thoảng, Nha Trang được ví như hòn ngọc bên bờ biển ...
+                        <span class="read-more">
+                            <a href="#">Xem thêm</a>
+                            <span class="tooltip">
+                                Đây là những điểm nổi bật:<br>
+                                – Vinpearl Land<br>
+                                – Hòn Chồng<br>
+                                – Tháp Bà Ponagar<br>
+                                – Chợ Đầm, Đầm Nha Phu, cầu Trần Phú…<br>
+                                Bạn có thể cuộn thêm để xem toàn bộ nội dung.
+                            </span>
+                        </span>
+                    </p>
+                </div>
+                <div class="info-boxes">
+                    <div>
+                        <b>Thời gian tuyệt nhất để đến</b>
+                        THG 6 <br />
+                        <span>Lễ hội Biển Nha Trang</span>
+                    </div>
+                    <div>
+                        <b>Thời lượng lý tưởng</b>
+                        3 ngày
+                    </div>
+                </div>
+            </div>
+            <div class="image-side">
+                <img src="/img/diadiem/nhatrang.png" alt="Nha Trang" />
+                <div class="photo-library">Thư viện ảnh</div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Nếu trang còn nội dung khác, đặt bên dưới banner -->
+    <main class="container my-5">
+
+        <section class="service-section">
+            <div class="category-card">
+                <img src="img/icons/tour.png" alt="Tour">
+                <p>Tour</p>
+            </div>
+            <div class="category-card">
+                <img src="img/icons/khachsan.png" alt="Khách sạn">
+                <p>Khách sạn</p>
+            </div>
+            <div class="category-card">
+                <img src="img/icons/choivua.png" alt="Khách sạn">
+                <p>vui chơi </p>
+            </div>
+        </section>
+
+        <section id="hotel-deals">
+            <div class="container section-container">
+                <!-- Tiêu đề -->
+                <h2 class="text-center section-title">Ưu đãi khách sạn Nha Trang</h2>
+                <!-- Các card khách sạn; thêm class equal-height nếu cần -->
+                <div class="row g-4 align-items-stretch">
+                    <!-- Card 1 -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100 position-relative">
+                            <img src="img/diadiem/kha.png" class="card-img-top" alt="Hotel Image">
+                            <div class="discount-badge">Tiết kiệm 18%</div>
+                            <div class="location-badge">Lộc Thọ</div>
+                            <div class="good-price">🌞 4-5 sao giá tốt</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Vinpearl Beachfront Nha Trang</h5>
+                                <p class="rating">
+                                    ⭐⭐⭐⭐⭐ <span class="text-primary fw-bold">8.8/10</span> (132)
+                                </p>
+                                <p class="price-old">1.823.519 VND</p>
+                                <p class="price-new">1.495.401 VND</p>
+                                <p class="text-muted note">Chưa bao gồm thuế và phí</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100 position-relative">
+                            <img src="img/diadiem/kha.png" class="card-img-top" alt="Hotel Image">
+                            <div class="discount-badge">Tiết kiệm 19%</div>
+                            <div class="location-badge">Cam Hải Đông</div>
+                            <div class="good-price">🌞 4-5 sao giá tốt</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Ana Mandara Cam Ranh</h5>
+                                <p class="rating">
+                                    ⭐⭐⭐⭐⭐ <span class="text-primary fw-bold">9.0/10</span> (43)
+                                </p>
+                                <p class="price-old">4.053.742 VND</p>
+                                <p class="price-new">3.299.036 VND</p>
+                                <p class="text-muted note">Chưa bao gồm thuế và phí</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100 position-relative">
+                            <img src="img/diadiem/kha.png" class="card-img-top" alt="Hotel Image">
+                            <div class="discount-badge">Tiết kiệm 25%</div>
+                            <div class="location-badge">Vĩnh Nguyên</div>
+                            <div class="good-price">🌞 4-5 sao giá tốt</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Vinpearl Resort Nha Trang</h5>
+                                <p class="rating">
+                                    ⭐⭐⭐⭐⭐ <span class="text-primary fw-bold">8.6/10</span> (137)
+                                </p>
+                                <p class="price-old">3.475.946 VND</p>
+                                <p class="price-new">2.606.960 VND</p>
+                                <p class="text-muted note">Chưa bao gồm thuế và phí</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100 position-relative">
+                            <img src="img/diadiem/kha.png" class="card-img-top" alt="Hotel Image">
+                            <div class="discount-badge">Tiết kiệm 25%</div>
+                            <div class="location-badge">Lộc Thọ</div>
+                            <div class="good-price">🌞 4-5 sao giá tốt</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Masova Hotel</h5>
+                                <p class="rating">
+                                    ⭐⭐⭐⭐ <span class="text-primary fw-bold">8.8/10</span> (418)
+                                </p>
+                                <p class="price-old">948.319 VND</p>
+                                <p class="price-new">711.240 VND</p>
+                                <p class="text-muted note">Chưa bao gồm thuế và phí</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end row -->
+                <!-- Nút xem thêm -->
+                <div class="text-center mt-4">
+                    <button class="btn btn-view-more px-4 py-2">
+                        Xem thêm ưu đãi khách sạn &rarr;
+                    </button>
+                </div>
+            </div> <!-- end container -->
+        </section>
+
+        <section id="tour-deals">
+            <div class="container section-container">
+                <!-- Tiêu đề -->
+                <h2 class="text-center section-title">Ưu đãi Tour Nha Trang</h2>
+                <!-- Các card tour -->
+                <div class="row g-4 align-items-stretch">
+                    <!-- Card 1 -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100 position-relative">
+                            <img src="img/anhmau/tour.png" class="card-img-top" alt="Tour Image">
+                            <div class="location-badge">Tân Hiệp</div>
+                            <!-- Ví dụ thêm badge phụ nếu cần -->
+                            <!-- <div class="extra-badge">Customer Choice</div> -->
+                            <div class="card-body">
+                                <h5 class="card-title">Tour Ngày Cù Lao Chàm với trải nghiệm lặn ống thở và du thuyền cao tốc</h5>
+                                <!-- Nếu có rating -->
+                                <p class="rating">
+                                    <!-- Ví dụ hiển thị 5 sao -->
+                                    <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+                                    <span class="text-primary fw-bold">4.8/5</span> <!-- hoặc 8.8/10 nếu muốn -->
+                                </p>
+                                <p class="price">653.226 VND</p>
+                                <!-- Nếu có ghi chú ngắn -->
+                                <p class="note">Khởi hành hàng ngày. Bao gồm hướng dẫn viên.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100 position-relative">
+                            <img src="img/anhmau/tour.png" class="card-img-top" alt="Tour Image">
+                            <div class="location-badge">Cẩm Thanh</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Tour Nửa Ngày: Trải nghiệm Phố cổ và Thuyền thúng đua | Hội An</h5>
+                                <p class="rating">
+                                    <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+                                    <span class="text-primary fw-bold">4.9/5</span>
+                                </p>
+                                <p class="price">890.910 VND</p>
+                                <p class="note">Bao gồm vé tham quan và ăn nhẹ.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100 position-relative">
+                            <img src="img/anhmau/tour.png" class="card-img-top" alt="Tour Image">
+                            <div class="location-badge">Thành phố Hạ Long</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Tour du thuyền 4 sao tại vịnh Hạ Long – 2N1Đ</h5>
+                                <p class="rating">
+                                    <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+                                    <span class="text-primary fw-bold">4.7/5</span>
+                                </p>
+                                <p class="price">3.125.000 VND</p>
+                                <p class="note">Bao gồm ngủ đêm trên tàu, ăn sáng, tham quan hang.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100 position-relative">
+                            <img src="img/anhmau/tour.png" class="card-img-top" alt="Tour Image">
+                            <div class="location-badge">Cẩm Thanh</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Tour Nửa Ngày Làng Cẩm Thanh: Thuyền Thúng & Cưỡi Trâu Nước | Việt Nam</h5>
+                                <p class="rating">
+                                    <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+                                    <span class="text-primary fw-bold">4.8/5</span>
+                                </p>
+                                <p class="price">681.821 VND</p>
+                                <p class="note">Khởi hành buổi sáng. Giá đã bao gồm phương tiện và HDV.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Có thể tiếp tục thêm nhiều card nữa bằng cách copy bloc trên -->
+                </div> <!-- end row -->
+                <!-- Nút xem tất cả -->
+                <div class="text-center mt-4">
+                    <button class="btn btn-view-all px-4 py-2">
+                        Xem tất cả ưu đãi Tour &rarr;
+                    </button>
+                </div>
+            </div> <!-- end container -->
+        </section>
+
+        <section id="service-deals">
+            <div class="container section-container">
+                <!-- Tiêu đề -->
+                <h2 class="text-center section-title">Ưu đãi dịch vụ</h2>
+                <!-- Row các card -->
+                <div class="row g-4 align-items-stretch">
+                    <!-- Card 1 -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100 position-relative">
+                            <!-- Ảnh dịch vụ -->
+                            <img src="img/anhmau/ship.jpg" class="card-img-top" alt="Dịch vụ 1">
+                            <!-- Badge location -->
+                            <div class="location-badge">phường Bãi Cháy</div>
+                            <!-- Ví dụ badge phụ -->
+                            <!-- <div class="extra-badge">Đối tác chính thức</div> -->
+                            <div class="card-body d-flex flex-column">
+                                <!-- Tiêu đề dịch vụ -->
+                                <h5 class="card-title">Vé Sun World Hạ Long</h5>
+                                <!-- Giá -->
+                                <p class="price">300.000 VND</p>
+                                <!-- Ghi chú ngắn -->
+                                <p class="note">Mua online giảm thêm. Vé điện tử gửi ngay.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100 position-relative">
+                            <img src="img/anhmau/ship.jpg" class="card-img-top" alt="Dịch vụ 2">
+                            <div class="location-badge">xã Gành Dầu</div>
+                            <div class="extra-badge">Đối tác chính thức</div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Vé VinWonders Phú Quốc</h5>
+                                <p class="price">570.000 VND</p>
+                                <p class="note">Áp dụng khung giờ vàng. Hủy miễn phí.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100 position-relative">
+                            <img src="img/anhmau/ship.jpg" class="card-img-top" alt="Dịch vụ 3">
+                            <div class="location-badge">xã Gành Dầu</div>
+                            <div class="extra-badge">Đối tác chính thức</div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Vé Vinpearl Safari Phú Quốc</h5>
+                                <p class="price">450.000 VND</p>
+                                <p class="note">Bao gồm xe đưa đón. Check-in nhanh.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100 position-relative">
+                            <img src="img/anhmau/ship.jpg" class="card-img-top" alt="Dịch vụ 4">
+                            <div class="location-badge">Lao Chải</div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Vé Bản Mông - Xe Trượt Núi Alpine Coaster tại Sa Pa</h5>
+                                <p class="price">200.000 VND</p>
+                                <p class="note">Trải nghiệm mạo hiểm, an toàn cao.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Bạn có thể tiếp tục thêm card tương tự -->
+                </div> <!-- end row -->
+                <!-- Nút xem tất cả -->
+                <div class="text-center mt-4">
+                    <button class="btn btn-view-all px-4 py-2">
+                        Xem tất cả ưu đãi dịch vụ &rarr;
+                    </button>
+                </div>
+            </div> <!-- end container -->
+        </section>
+
+
+    </main>
+
+    <!-- footer -->
+    <footer class="footer bg-light pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <!-- Cột 1: Về KTS -->
+                <div class="col-6 col-md-3 mb-4">
+                    <h5 class="footer-heading">Về KTS</h5>
+                    <ul class="list-unstyled footer-list">
+                        <li><a href="#ve-chung-toi">Về chúng tôi</a></li>
+                        <li><a href="#lien-he">Liên hệ chúng tôi</a></li>
+                        <li><a href="#tro-giup">Trợ giúp</a></li>
+                        <li><a href="#tuyen-dung">Tuyển dụng</a></li>
+                    </ul>
+                </div>
+
+                <!-- Cột 2: Sản phẩm -->
+                <div class="col-6 col-md-3 mb-4">
+                    <h5 class="footer-heading">Sản phẩm</h5>
+                    <ul class="list-unstyled footer-list">
+                        <li><a href="#khach-san">Khách sạn</a></li>
+                        <li><a href="#tours">Tours</a></li>
+                        <li><a href="#vui-choi">Vui chơi</a></li>
+                    </ul>
+                </div>
+
+                <!-- Cột 3: Theo dõi chúng tôi -->
+                <div class="col-6 col-md-3 mb-4">
+                    <h5 class="footer-heading">Theo dõi chúng tôi tại</h5>
+                    <div class="d-flex align-items-center">
+                        <!-- Icon Facebook -->
+                        <a href="https://www.facebook.com/tenPage"
+                           target="_blank"
+                           class="me-3 social-icon"
+                           aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <!-- Icon YouTube -->
+                        <a href="https://www.youtube.com/tenKenh"
+                           target="_blank"
+                           class="me-3 social-icon"
+                           aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <!-- Nếu cần thêm icon khác, copy block phía trên và thay class/icon tương ứng -->
+                    </div>
+                </div>
+
+                <!-- Cột 4: Kênh thanh toán -->
+                <div class="col-6 col-md-3 mb-4">
+                    <h5 class="footer-heading">Kênh thanh toán</h5>
+                    <div class="d-flex flex-wrap align-items-center payment-icons">
+                        <!-- Mỗi logo thanh toán có thể là <img> hoặc <i> nếu bạn dùng font/icon kit -->
+                        <!-- Ở đây giả sử bạn có file ảnh nhỏ nằm ở /img/payments/visa.png, mastercard.png, ... -->
+                        <img src="#"
+                             alt="Visa"
+                             class="#" />
+                        <img src="#"
+                             alt="MasterCard"
+                             class="me-2 mb-2 payment-icon" />
+                        <img src="#"
+                             alt="American Express"
+                             class="me-2 mb-2 payment-icon" />
+                        <img src="#"
+                             alt="PayPal"
+                             class="me-2 mb-2 payment-icon" />
+                        <img src="#"
+                             alt="JCB"
+                             class="#" />
+                        <img src="#"
+                             alt="UnionPay"
+                             class="me-2 mb-2 payment-icon" />
+                        <!-- Thêm hoặc bớt logo khác theo thực tế -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- (Nếu muốn) có thể thêm copyright hoặc dòng bản quyền ở đây -->
+            <!--
+            <div class="row mt-4">
+              <div class="col text-center">
+                <p class="mb-0 text-muted">&copy; 2025 KTS Travel. All rights reserved.</p>
+              </div>
+            </div>
+            -->
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JS (nếu cần) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/indexmain.js"></script>
+
+</body>
+</html>

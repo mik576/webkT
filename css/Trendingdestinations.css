@@ -1,0 +1,616 @@
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+}
+
+section.destination-section {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    padding: 30px 0;
+}
+
+.background-blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/img/diadiem/nhatrang.png') no-repeat center center;
+    background-size: cover;
+    filter: blur(12px);
+    z-index: 1;
+}
+
+.content-card {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    background-color: #fff;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.text-content {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+    .text-content h2 {
+        font-size: 26px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .text-content p {
+        font-size: 15px;
+        color: #333;
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+
+    .text-content a {
+        color: #333;
+        text-decoration: underline;
+        font-weight: bold;
+    }
+
+.info-boxes {
+    display: flex;
+    gap: 50px;
+    font-size: 14px;
+}
+
+    .info-boxes b {
+        display: block;
+        margin-bottom: 5px;
+        color: #111;
+        font-size: 14px;
+    }
+
+    .info-boxes span {
+        color: #777;
+        font-size: 13px;
+    }
+
+.image-side {
+    width: 400px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+    .image-side img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+.photo-library {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
+
+@media (max-width: 768px) {
+    .content-card {
+        flex-direction: column;
+    }
+
+    .image-side {
+        width: 100%;
+        height: 200px;
+    }
+
+    .text-content {
+        padding: 20px;
+    }
+
+    .info-boxes {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+
+
+/* --- wrapper quanh link --- */
+.read-more {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+    /* Tooltip bên phải */
+    .read-more .tooltip {
+        position: absolute;
+        top: 50%; /* canh giữa theo chiều dọc */
+        left: 100%; /* ngay sát bên phải wrapper */
+        margin-left: 8px; /* khoảng cách giữa link và tooltip */
+        transform: translateY(-50%);
+        width: 280px;
+        max-height: 180px;
+        padding: 12px 16px;
+        background: rgba(0, 0, 0, 0.75);
+        color: #fff;
+        font-size: 13px;
+        line-height: 1.4;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(4px);
+        overflow-y: auto;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.2s ease, visibility 0.2s ease;
+        z-index: 5;
+    }
+
+        /* Mũi tên bên trái */
+        .read-more .tooltip::after {
+            content: "";
+            position: absolute;
+            top: 50%; /* canh giữa mũi tên theo chiều dọc */
+            left: 0; /* sát mép trái của tooltip */
+            transform: translate(-100%, -50%);
+            border-width: 6px;
+            border-style: solid;
+            border-color: transparent rgba(0, 0, 0, 0.75) transparent transparent;
+        }
+
+    .read-more:hover .tooltip {
+        visibility: visible;
+        opacity: 1;
+    }
+
+.service-section {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 60px auto;
+    max-width: 800px;
+}
+
+.category-card {
+    width: 120px;
+    height: 120px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: white;
+}
+
+    .category-card img {
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+    }
+
+    .category-card p {
+        margin-top: 10px;
+        font-weight: 600;
+        font-size: 16px;
+        color: #333;
+    }
+
+    .category-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+
+    .category-card.selected {
+        border: 2px solid #000;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.discount-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #FF6600;
+    color: white;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.location-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #000;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.good-price {
+    background-color: #C6E000;
+    color: #000;
+    padding: 5px 10px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 14px;
+}
+
+.price-old {
+    text-decoration: line-through;
+    color: gray;
+    font-size: 14px;
+}
+
+.price-new {
+    color: #FF6600;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Section wrapper styling */
+#hotel-deals {
+    /* Ví dụ: nền trắng hoặc gradient nhẹ */
+
+}
+    #hotel-deals .section-container {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    #hotel-deals h2.section-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 40px;
+    }
+/* Card chung */
+.card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    /* để hiệu ứng hover mượt */
+    transition: transform 0.2s;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+    /* Buộc card chiếm 100% chiều cao của cột */
+    .card.h-100 {
+        display: flex;
+        flex-direction: column;
+    }
+/* Ảnh trên cùng: cố định chiều cao, object-fit cover */
+.card-img-top {
+    height: 180px; /* điều chỉnh tùy hình ảnh, ví dụ 180px hoặc 200px */
+    object-fit: cover;
+}
+/* Badge giảm giá và location */
+.discount-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #FF6600;
+    color: white;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.location-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+/* Nhãn “4-5 sao giá tốt” */
+.good-price {
+    background-color: #C6E000; /* xanh chuối */
+    color: #000;
+    padding: 5px 10px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 14px;
+}
+/* Card body flex để dàn nội dung */
+.card-body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+    /* Thông tin rating và tên */
+    .card-body .card-title {
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .card-body .rating {
+        margin-bottom: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+.rating span {
+    vertical-align: middle;
+}
+/* Giá cũ/gia mới */
+.price-old {
+    text-decoration: line-through;
+    color: gray;
+    font-size: 14px;
+    margin-bottom: 0.25rem;
+}
+
+.price-new {
+    color: #FF6600;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 0.5rem;
+}
+
+.card-body .note {
+    margin-top: auto; /* đẩy phần note (nếu muốn) hoặc nút xuống đáy */
+    font-size: 0.8rem;
+}
+/* Nút xem thêm bên dưới section */
+#hotel-deals .btn-view-more {
+    background-color: #C6E000;
+    color: #000;
+    border: none;
+}
+
+    #hotel-deals .btn-view-more:hover {
+        background-color: #A8C600;
+        color: #000;
+    }
+/* Đảm bảo row col cùng chiều cao: mặc định bootstrap khi .card.h-100 */
+/* Nếu muốn chắc chắn: */
+/* .row.equal-height { align-items: stretch; } */
+
+/* Section wrapper */
+#tour-deals {
+
+}
+
+    #tour-deals .section-container {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    #tour-deals h2.section-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 40px;
+    }
+/* Card chung */
+.card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+    /* Buộc card chiếm 100% chiều cao cột để đều nhau */
+    .card.h-100 {
+        display: flex;
+        flex-direction: column;
+    }
+/* Ảnh trên cùng: cố định chiều cao, object-fit cover */
+.card-img-top {
+    height: 180px; /* bạn có thể điều chỉnh (ví dụ 200px) tùy ảnh */
+    object-fit: cover;
+}
+/* Badge location phía trên */
+.location-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #FF5A5F; /* màu coral/đỏ nhạt */
+    color: white;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 14px;
+    text-transform: none;
+}
+/* Nếu có badge khác (ví dụ “Customer choice” hoặc “Local activity”), bạn có thể thêm class tương tự */
+.extra-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #FFC107; /* ví dụ vàng cho nhãn phụ */
+    color: #000;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+}
+/* Card body flex để dàn nội dung */
+.card-body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+    .card-body .card-title {
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.2;
+        /* Giới hạn dòng nếu quá dài, bạn có thể thêm ellipsis nếu muốn */
+    }
+
+    .card-body .rating {
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        color: #FFC107; /* màu vàng cho sao, nếu có */
+    }
+
+.rating .star {
+    margin-right: 2px;
+}
+
+.price {
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #FF6600;
+}
+
+.note {
+    margin-top: auto; /* đẩy phần note hoặc nút xuống dưới */
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+/* Nút xem tất cả */
+#tour-deals .btn-view-all {
+    background-color: #C6E000; /* xanh chuối */
+    color: #000;
+    border: none;
+}
+
+    #tour-deals .btn-view-all:hover {
+        background-color: #A8C600;
+        color: #000;
+    }
+/* Nếu muốn nút dạng outline hoặc trắng viền xanh, bạn có thể điều chỉnh ở đây */
+
+#service-deals .section-container {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+#service-deals h2.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+/* Card chung */
+.card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+    /* Buộc card chiếm 100% chiều cao cột */
+    .card.h-100 {
+        display: flex;
+        flex-direction: column;
+    }
+/* Ảnh card: cố định chiều cao, object-fit cover */
+.card-img-top {
+    height: 180px; /* có thể điều chỉnh (ví dụ 200px) tùy ảnh */
+    object-fit: cover;
+}
+/* Badge location góc trên */
+.location-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #FF5A5F; /* coral/đỏ nhạt */
+    color: white;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 14px;
+    text-transform: none;
+}
+/* Nếu có badge phụ (ví dụ “Đối tác chính thức” hoặc “Hot”) */
+.extra-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #FFC107; /* vàng */
+    color: #000;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+}
+/* Card body flex */
+.card-body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+    .card-body .card-title {
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+
+    .card-body .price {
+        margin-bottom: 0.75rem;
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #FF6600;
+    }
+
+    .card-body .note {
+        margin-top: auto; /* đẩy phần note hoặc nút xuống đáy */
+        font-size: 0.8rem;
+        color: #6c757d;
+    }
+/* Nút xem tất cả */
+#service-deals .btn-view-all {
+    background-color: #C6E000; /* xanh chuối */
+    color: #000;
+    border: none;
+}
+
+    #service-deals .btn-view-all:hover {
+        background-color: #A8C600;
+        color: #000;
+    }

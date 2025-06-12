@@ -1,0 +1,872 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KTS Travel</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+          rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+          rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+
+    <!-- Link đến file CSS riêng (ở đây giả sử đặt tên head.css) -->
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/datphong.css" />
+</head>
+
+<body>
+
+    <!-- ===== Header: Navbar + Menu ===== -->
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="/img/logo/KTS_TV_Logo_2.png"
+                         alt="KTS Travel"
+                         class="logo-img-kts" />
+                </a>
+
+                <!-- Toggle button (cho mobile) -->
+                <button class="navbar-toggler border-0"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarContent"
+                        aria-controls="navbarContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Nội dung Navbar -->
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <!-- Search Box -->
+                    <form class="d-flex ms-lg-4 me-lg-auto my-2 my-lg-0" role="search">
+                        <div class="input-group search-box-kts">
+                            <input type="text"
+                                   class="form-control search-input-kts"
+                                   placeholder="Tìm theo điểm đến" />
+                            <button class="btn btn-outline-secondary search-btn-kts" type="submit">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Nhóm tài khoản & ngôn ngữ -->
+                    <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-3">
+                        <!-- Dropdown ngôn ngữ -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center p-0"
+                               href="#"
+                               id="dropdownLang"
+                               role="button"
+                               data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                <img src="https://flagcdn.com/w20/vn.png"
+                                     alt="VN"
+                                     class="flag-img-kts me-1" />
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownLang">
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="?lang=vi">
+                                        <img src="https://flagcdn.com/w20/vn.png" class="me-2" />
+                                        Tiếng Việt
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="?lang=en">
+                                        <img src="https://flagcdn.com/w20/us.png" class="me-2" />
+                                        English
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="?lang=jp">
+                                        <img src="https://flagcdn.com/w20/jp.png" class="me-2" />
+                                        日本語
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Trợ giúp, xem gần đây, đăng ký, đăng nhập -->
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="/help">Trợ giúp</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="/recent">xem gần đây</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="/register">Đăng ký</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-success btn-sm login-btn-kts ms-2" href="/login.html">Đăng nhập</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Divider (dòng ngăn cách) -->
+        <hr class="divider-kts m-0" />
+
+        <!-- Menu full-width bên dưới Navbar -->
+        <nav class="menu-kts-fullwidth">
+            <div class="container d-flex justify-content-center gap-4 py-2">
+                <a href="#" class="menu-item-kts">trải nghiệm</a>
+                <a href="#" class="menu-item-kts">khách sạn</a>
+                <a href="#" class="menu-item-kts">Tour</a>
+                <a href="#" class="menu-item-kts">Khám phá KTSTRAVEL</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Nếu trang còn nội dung khác, đặt bên dưới banner -->
+
+    <main class="container my-5">
+        <div class="row g-4">
+            <!-- Cột gallery (2/3) -->
+            <div class="col-lg-8">
+                <section class="mb-0">
+                    <div class="row g-2" style="height:400px;">
+                        <div class="col-8">
+                            <img src="/img/diadiem/danang.png" alt="Hồ bơi" class="hotel-img-main">
+                        </div>
+                        <div class="col-4 d-flex flex-column gap-2">
+                            <img src="/img/diadiem/danang.png" alt="Phòng 1" class="hotel-img-small">
+                            <img src="/img/diadiem/danang.png" alt="Phòng 2" class="hotel-img-small">
+                        </div>
+                    </div>
+                    <div class="row g-2 mt-2">
+                        <div class="col-2"><img src="/img/diadiem/danang.png" class="hotel-thumb-img" alt=""></div>
+                        <div class="col-2"><img src="/img/diadiem/danang.png" class="hotel-thumb-img" alt=""></div>
+                        <div class="col-2"><img src="/img/diadiem/danang.png" class="hotel-thumb-img" alt=""></div>
+                        <div class="col-2"><img src="/img/diadiem/danang.png" class="hotel-thumb-img" alt=""></div>
+                        <div class="col-2"><img src="/img/diadiem/danang.png" class="hotel-thumb-img" alt=""></div>
+                        <div class="col-2 thumb-more"><img src="/img/diadiem/danang.png" class="hotel-thumb-img" alt=""></div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Cột review + map (1/3) -->
+            <div class="col-lg-4 d-flex flex-column">
+                <!-- Review -->
+                <section class="review-frame mb-4 p-3">
+                    <!-- Header: rating chung -->
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-0">Tuyệt vời</h6>
+                            <small class="text-muted">9.284 đánh giá</small>
+                        </div>
+                        <div class="badge bg-primary fs-5">8,9</div>
+                    </div>
+
+                    <!-- Đường kẻ ngang dưới header -->
+                    <div class="separator my-3"></div>
+
+                    <!-- Nội dung trích dẫn -->
+                    <p class="mb-1"><strong>Khách lưu trú ở đây thích điều gì?</strong></p>
+                    <p class="fst-italic mb-2">“Tuyệt vời, nhân viên thân thiện (đặc biệt là bạn Khang)”</p>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="me-2 rounded-circle bg-secondary text-white d-flex
+                justify-content-center align-items-center"
+                             style="width:32px; height:32px;">L</div>
+                        <small>Liên, Việt Nam</small>
+                    </div>
+
+                    <!-- Đường kẻ ngang trước staff rating -->
+                    <div class="separator mb-3"></div>
+
+                    <!-- Mục Nhân viên phục vụ -->
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h6 class="mb-0">Nhân viên phục vụ</h6>
+                        <div class="badge bg-primary">9,3</div>
+                    </div>
+                </section>
+
+                <!-- Map -->
+                <section class="map-section flex-grow-1 mb-4">
+                    <h6 class="mb-3">Vị trí trên bản đồ</h6>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.170123456789!2d109.1887123153305!3d12.238791123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3170660c1234567%3A0xabcdef1234567890!2sNha%20Trang%2C%20Vi%E1%BB%87t%20Nam!5e0!3m2!1sen!2sus!4v0000000000000"
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <button class="btn map-btn">Hiển thị trên bản đồ</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+
+        <section class="hotel-card container my-4 p-3 bg-white rounded ">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h5 class="fw-bold mb-1">Khách sạn Nha Trang Horizon (Nha Trang Horizon Hotel)</h5>
+                    <div class="text-warning mb-1">
+                        ★★★★★
+                    </div>
+                    <div class="text-muted">
+                        <i class="bi bi-geo-alt-fill me-1"></i>10 Tôn Đản, Nha Trang, Việt Nam
+                    </div>
+                </div>
+                <div class="col-md-4 text-md-end text-start mt-3 mt-md-0">
+                    <div class="fs-5 fw-semibold text-danger">₫ 788,595 <span class="text-muted fs-6">Mỗi đêm</span></div>
+                    <a href="#" class="btn btn-warning mt-2 fw-bold text-white">Chọn phòng</a>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="container my-4">
+            <div class="row">
+                <!-- Cột trái: Mô tả & tiện nghi -->
+                <div class="col-lg-8">
+                    <h5 class="fw-semibold">Tận hưởng dịch vụ đỉnh cao, đẳng cấp thế giới tại Nha Trang Horizon Hotel</h5>
+                    <p>Nằm ở TP. Nha Trang, cách bãi biển Trần Phú vài phút đi bộ, Nha Trang Horizon Hotel cung cấp chỗ nghỉ với hồ bơi ngoài trời, chỗ đậu xe riêng miễn phí, trung tâm thể dục và khu vực lounge. Khách sạn 5 sao này cung cấp dịch vụ phòng, lễ tân 24 giờ và Wi-Fi miễn phí. Khách có thể thư giãn tại sân hiên với tầm nhìn ra biển hoặc thưởng thức bữa ăn tại nhà hàng trong khách sạn và đồ uống tại quầy bar.</p>
+                    <p>Các phòng nghỉ tại khách sạn được trang bị điều hòa, bàn làm việc, ấm đun nước, minibar, két an toàn, TV màn hình phẳng và phòng tắm riêng với vòi sen và đồ vệ sinh cá nhân miễn phí. Tại Nha Trang Horizon Hotel, các phòng đều có ga trải giường và khăn tắm sạch sẽ.</p>
+                    <p>Du khách có thể bắt đầu ngày mới với bữa sáng tự chọn đa dạng tại khách sạn, bao gồm món Á, món quốc tế và các lựa chọn ăn chay.</p>
+                    <p>Chỗ nghỉ cách Tháp Bà Ponagar khoảng 2 km, cách Hòn Chồng chưa đến 1 km và cách trung tâm thành phố Nha Trang khoảng 3 km.</p>
+                    <p class="text-muted fst-italic small">Các khoảng cách được đo theo đường thẳng và có thể không phản ánh khoảng cách di chuyển thực tế. © OpenStreetMap</p>
+
+
+                    <!-- Tiện nghi -->
+                    <h6 class="mt-4">Các tiện nghi được ưa chuộng nhất</h6>
+                    <div class="row row-cols-2 row-cols-md-3 g-2 mt-2 text-success">
+                        <div><i class="bi bi-water me-1"></i> Hồ bơi ngoài trời</div>
+                        <div><i class="bi bi-wifi me-1"></i> WiFi miễn phí</div>
+                        <div><i class="bi bi-heart-pulse me-1"></i> Trung tâm thể dục</div>
+                        <div><i class="bi bi-door-closed me-1"></i> Phòng không hút thuốc</div>
+                        <div><i class="bi bi-spa me-1"></i> Trung tâm Spa & chăm sóc sức khoẻ</div>
+                        <div><i class="bi bi-car-front me-1"></i> Chỗ đậu xe miễn phí</div>
+                        <div><i class="bi bi-clock me-1"></i> Lễ tân 24 giờ</div>
+                        <div><i class="bi bi-egg-fried me-1"></i> 2 nhà hàng</div>
+                        <div><i class="bi bi-cup-straw me-1"></i> Quầy bar</div>
+                        <div><i class="bi bi-emoji-smile me-1"></i> Bữa sáng tuyệt vời</div>
+                    </div>
+                </div>
+
+                <!-- Cột phải: Box nổi bật -->
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div class="highlight-box p-4 rounded-3">
+                        <h6 class="section-title mb-3">
+                            <i class="bi bi-stars me-2"></i>Điểm nổi bật của chỗ nghỉ
+                        </h6>
+
+                        <div class="d-flex align-items-start mb-3">
+                            <i class="bi bi-geo-alt-fill icon-highlight me-2"></i>
+                            <p class="mb-0">
+                                Nằm tại khu vực được đánh giá cao nhất ở Nha Trang,<br>
+                                chỗ nghỉ này có điểm vị trí xuất sắc là <strong>9,5</strong>
+                            </p>
+                        </div>
+
+                        <hr>
+
+                        <h6 class="section-title mb-2">
+                            <i class="bi bi-cup-hot me-2"></i>Thông tin về bữa sáng
+                        </h6>
+                        <p class="mb-1">Kiểu Á, Tự chọn</p>
+                        <p class="mb-0">
+                            <i class="bi bi-p-circle icon-highlight me-1"></i> Có chỗ đậu xe riêng trong khuôn viên
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container my-5">
+            <h4 class="fw-bold mb-4">Chọn phòng</h4>
+            <form id="searchForm" class="row g-3" autocomplete="off">
+                <!-- Ngày bắt đầu -->
+                <div class="col-md-4">
+                    <label for="startDate" class="form-label">Ngày bắt đầu</label>
+                    <input type="text" id="startDate" class="form-control" placeholder="Chọn ngày bắt đầu" readonly>
+                </div>
+
+                <!-- Ngày kết thúc -->
+                <div class="col-md-4">
+                    <label for="endDate" class="form-label">Ngày kết thúc</label>
+                    <input type="text" id="endDate" class="form-control" placeholder="Chọn ngày kết thúc" readonly>
+                </div>
+
+                <!-- Khách -->
+                <div id="guestField" class="col-md-4 position-relative">
+                    <label for="guestsDisplay" class="form-label">Khách</label>
+                    <input type="text" id="guestsDisplay" class="form-control" readonly value="2 người lớn, 0 trẻ em, 1 phòng">
+                </div>
+            </form>
+
+            <!-- Bộ lọc và hiển thị -->
+            <div class="d-flex justify-content-between align-items-center flex-wrap mt-4">
+                <!-- Nút lọc -->
+                <div class="d-flex flex-wrap gap-2">
+                    <button type="button" class="btn btn-outline-success rounded-pill px-3 py-1">Tất cả phòng</button>
+                    <button type="button" class="btn btn-outline-secondary rounded-pill px-3 py-1">1 giường</button>
+                    <button type="button" class="btn btn-outline-secondary rounded-pill px-3 py-1">2 giường</button>
+                    <button type="button" class="btn btn-outline-secondary rounded-pill px-3 py-1">3+ giường</button>
+                </div>
+                <!-- Text hiển thị số lượng phòng -->
+                <p class="text-muted mb-0">Hiển thị 11 trên 11 phòng</p>
+            </div>
+        </section>
+
+        <!-- CSS (thêm vào datphong.css) -->
+        <!-- HTML -->
+        <section id="roomsSection" class="my-5">
+            <div class="container">
+                <!-- Header section -->
+                <div class="section-header d-flex justify-content-between align-items-center">
+                    <h4 class="fw-bold mb-0">Các lựa chọn phòng</h4>
+                    <div>
+                        <select class="form-select form-select-sm">
+                            <option selected>Sắp xếp theo...</option>
+                            <option value="priceAsc">Giá tăng dần</option>
+                            <option value="priceDesc">Giá giảm dần</option>
+                            <option value="areaDesc">Diện tích lớn nhất</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Grid: row với 3 cột trên lg -->
+                <div class="row g-4">
+                    <!-- Card 1 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="room-card d-flex flex-column h-100">
+                            <!-- Carousel (ID duy nhất) -->
+                            <div id="carouselRoom1" class="carousel slide position-relative" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="img/diadiem/room.png" class="d-block w-100" alt="Ảnh Phòng 1">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img/diadiem/room.png" class="d-block w-100" alt="Ảnh Phòng 1">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselRoom1" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Trước</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselRoom1" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Tiếp</span>
+                                </button>
+                                <div class="position-absolute top-0 end-0 m-2 badge bg-dark bg-opacity-50 text-white">
+                                    2 ảnh
+                                </div>
+                            </div>
+                            <!-- Nội dung -->
+                            <div class="p-3 d-flex flex-column flex-grow-1">
+                                <h6 class="mb-2">Biệt thự Grand, 1 phòng ngủ</h6>
+                                <ul class="amenities mb-2">
+                                    <li><i class="fa fa-utensils text-success"></i>Bữa sáng miễn phí</li>
+                                    <li><i class="bi bi-eye-fill text-success"></i>Quang cảnh biển</li>
+                                    <li><i class="bi bi-people text-success"></i>2 khách</li>
+                                    <li><i class="bi bi-bed text-success"></i>1 giường king</li>
+                                    <li><i class="bi bi-wifi text-success"></i>Wifi miễn phí</li>
+                                </ul>
+                                <div class="mb-2">
+                                    <span class="text-danger">Không hoàn tiền <i class="bi bi-info-circle-fill"></i></span>
+                                </div>
+                                <a href="#" class="detail-link mb-2">Xem thêm chi tiết <i class="bi bi-arrow-right"></i></a>
+                                <div class="mt-auto">
+                                    <div class="discount-badge">
+                                        <i class="bi bi-tag-fill me-1"></i>Giảm 15% với Giá thành viên
+                                    </div>
+                                    <div class="mt-1 d-flex align-items-baseline">
+                                        <span class="price-old">21.000.000 ₫</span>
+                                        <span class="price-new">17.850.000 ₫</span>
+                                    </div>
+                                    <div class="price-note">Tổng 283.500.000 ₫ bao gồm thuế &amp; phí</div>
+                                    <div class="rooms-left">Chỉ còn 1 phòng</div>
+                                    <button class="btn btn-primary btn-book mt-2">Đặt</button>
+                                    <div class="price-note mt-1">Sẽ chưa thu tiền ngay</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="room-card d-flex flex-column h-100">
+                            <div id="carouselRoom2" class="carousel slide position-relative" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="img/diadiem/room.png" class="d-block w-100" alt="Ảnh Phòng 2">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img/diadiem/room.png" class="d-block w-100" alt="Ảnh Phòng 2">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselRoom2" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Trước</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselRoom2" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Tiếp</span>
+                                </button>
+                                <div class="position-absolute top-0 end-0 m-2 badge bg-dark bg-opacity-50 text-white">
+                                    2 ảnh
+                                </div>
+                            </div>
+                            <div class="p-3 d-flex flex-column flex-grow-1">
+                                <h6 class="mb-2">Phòng Deluxe, 2 giường</h6>
+                                <ul class="amenities mb-2">
+                                    <li><i class="fa fa-utensils text-success"></i>Bữa sáng miễn phí</li>
+                                    <li><i class="bi bi-building text-success"></i>Quang cảnh thành phố</li>
+                                    <li><i class="bi bi-people text-success"></i>4 khách</li>
+                                    <li><i class="bi bi-bed text-success"></i>2 giường đơn</li>
+                                    <li><i class="bi bi-wifi text-success"></i>Wifi miễn phí</li>
+                                </ul>
+                                <div class="mb-2">
+                                    <span class="text-success">Hoàn tiền <i class="bi bi-info-circle-fill"></i></span>
+                                </div>
+                                <a href="#" class="detail-link mb-2">Xem thêm chi tiết <i class="bi bi-arrow-right"></i></a>
+                                <div class="mt-auto">
+                                    <div class="mt-1 d-flex align-items-baseline">
+                                        <span class="price-new">2.500.000 ₫</span>
+                                    </div>
+                                    <div class="price-note">Tổng 5.000.000 ₫ bao gồm thuế &amp; phí</div>
+                                    <div class="rooms-left">Còn 3 phòng</div>
+                                    <button class="btn btn-primary btn-book mt-2">Đặt</button>
+                                    <div class="price-note mt-1">Sẽ chưa thu tiền ngay</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="room-card d-flex flex-column h-100">
+                            <div id="carouselRoom3" class="carousel slide position-relative" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="img/diadiem/room.png" class="d-block w-100" alt="Ảnh Phòng 3">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img/diadiem/room.png" class="d-block w-100" alt="Ảnh Phòng 3">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselRoom3" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Trước</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselRoom3" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Tiếp</span>
+                                </button>
+                                <div class="position-absolute top-0 end-0 m-2 badge bg-dark bg-opacity-50 text-white">
+                                    2 ảnh
+                                </div>
+                            </div>
+                            <div class="p-3 d-flex flex-column flex-grow-1">
+                                <h6 class="mb-2">Suite Cao Cấp</h6>
+                                <ul class="amenities mb-2">
+                                    <li><i class="fa fa-utensils text-success"></i>Bữa sáng miễn phí</li>
+                                    <li><i class="bi bi-tree text-success"></i>Quang cảnh vườn</li>
+                                    <li><i class="bi bi-people text-success"></i>6 khách</li>
+                                    <li><i class="bi bi-bed text-success"></i>3 giường queen</li>
+                                    <li><i class="bi bi-wifi text-success"></i>Wifi miễn phí</li>
+                                </ul>
+                                <div class="mb-2">
+                                    <span class="text-danger">Không hoàn tiền <i class="bi bi-info-circle-fill"></i></span>
+                                </div>
+                                <a href="#" class="detail-link mb-2">Xem thêm chi tiết <i class="bi bi-arrow-right"></i></a>
+                                <div class="mt-auto">
+                                    <div class="discount-badge">
+                                        <i class="bi bi-tag-fill me-1"></i>Giảm 10% cho đặt trước
+                                    </div>
+                                    <div class="mt-1 d-flex align-items-baseline">
+                                        <span class="price-old">10.000.000 ₫</span>
+                                        <span class="price-new">9.000.000 ₫</span>
+                                    </div>
+                                    <div class="price-note">Tổng 27.000.000 ₫ bao gồm thuế &amp; phí</div>
+                                    <div class="rooms-left">Còn 2 phòng</div>
+                                    <button class="btn btn-primary btn-book mt-2">Đặt</button>
+                                    <div class="price-note mt-1">Sẽ chưa thu tiền ngay</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="room-card d-flex flex-column h-100">
+                            <div id="carouselRoom3" class="carousel slide position-relative" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="img/diadiem/room.png" class="d-block w-100" alt="Ảnh Phòng 3">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img/diadiem/room.pngb" class="d-block w-100" alt="Ảnh Phòng 3">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselRoom3" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Trước</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselRoom3" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Tiếp</span>
+                                </button>
+                                <div class="position-absolute top-0 end-0 m-2 badge bg-dark bg-opacity-50 text-white">
+                                    2 ảnh
+                                </div>
+                            </div>
+                            <div class="p-3 d-flex flex-column flex-grow-1">
+                                <h6 class="mb-2">Suite Cao Cấp</h6>
+                                <ul class="amenities mb-2">
+                                    <li><i class="fa fa-utensils text-success"></i>Bữa sáng miễn phí</li>
+                                    <li><i class="bi bi-tree text-success"></i>Quang cảnh vườn</li>
+                                    <li><i class="bi bi-people text-success"></i>6 khách</li>
+                                    <li><i class="bi bi-bed text-success"></i>3 giường queen</li>
+                                    <li><i class="bi bi-wifi text-success"></i>Wifi miễn phí</li>
+                                </ul>
+                                <div class="mb-2">
+                                    <span class="text-danger">Không hoàn tiền <i class="bi bi-info-circle-fill"></i></span>
+                                </div>
+                                <a href="#" class="detail-link mb-2">Xem thêm chi tiết <i class="bi bi-arrow-right"></i></a>
+                                <div class="mt-auto">
+                                    <div class="discount-badge">
+                                        <i class="bi bi-tag-fill me-1"></i>Giảm 10% cho đặt trước
+                                    </div>
+                                    <div class="mt-1 d-flex align-items-baseline">
+                                        <span class="price-old">10.000.000 ₫</span>
+                                        <span class="price-new">9.000.000 ₫</span>
+                                    </div>
+                                    <div class="price-note">Tổng 27.000.000 ₫ bao gồm thuế &amp; phí</div>
+                                    <div class="rooms-left">Còn 2 phòng</div>
+                                    <button class="btn btn-primary btn-book mt-2">Đặt</button>
+                                    <div class="price-note mt-1">Sẽ chưa thu tiền ngay</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- end row -->
+            </div> <!-- end container -->
+        </section>
+
+        <!-- chinh sach -->
+
+        <section id="policySection" class="py-5">
+            <div class="container">
+                <!-- Tiêu đề chính -->
+                <h4 class="mb-4">Chính sách</h4>
+
+                <!-- Dòng chứa hai cột: check-in và check-out -->
+                <div class="row">
+                    <!-- Cột trái: Nhận phòng và các mục liên quan -->
+                    <div class="col-12 col-md-6 mb-4 mb-md-0">
+                        <!-- Nhận phòng -->
+                        <div class="policy-block mb-4">
+                            <h5 class="policy-title">Nhận phòng</h5>
+                            <ul class="policy-list list-unstyled mb-0">
+                                <li>Bắt đầu nhận phòng: 15:00; kết thúc nhận phòng: nửa đêm</li>
+                                <li>Việc đáp ứng yêu cầu nhận phòng sớm tùy tình hình thực tế</li>
+                                <li>Có thể nhận phòng sớm với phụ phí</li>
+                                <li>Tuổi tối thiểu để nhận phòng: 17</li>
+                            </ul>
+                        </div>
+
+                        <!-- Hướng dẫn nhận phòng đặc biệt -->
+                        <div class="policy-block mb-4">
+                            <h5 class="policy-title">Hướng dẫn nhận phòng đặc biệt</h5>
+                            <ul class="policy-list list-unstyled mb-0">
+                                <li>Nhân viên tiếp tân sẽ đón tiếp khi khách đến nơi lưu trú</li>
+                                <li>Không thể nhận phòng sau giờ làm việc tại nơi lưu trú này</li>
+                            </ul>
+                        </div>
+
+                        <!-- Hướng dẫn nhận chỗ -->
+                        <div class="policy-block mb-4">
+                            <h5 class="policy-title">Hướng dẫn nhận chỗ</h5>
+                            <ul class="policy-list list-unstyled mb-0">
+                                <li>Người gác cửa</li>
+                            </ul>
+                        </div>
+
+                        <!-- Vật nuôi -->
+                        <div class="policy-block mb-4">
+                            <h5 class="policy-title">Vật nuôi</h5>
+                            <ul class="policy-list list-unstyled mb-0">
+                                <li>Không được mang theo thú cưng lẫn vật nuôi hỗ trợ người khuyết tật</li>
+                            </ul>
+                        </div>
+
+                        <!-- Trẻ em và giường bổ sung -->
+                        <div class="policy-block mb-0">
+                            <h5 class="policy-title">Trẻ em và giường bổ sung</h5>
+                            <ul class="policy-list list-unstyled mb-0">
+                                <li>Trẻ em được chào đón</li>
+                                <li>2 trẻ em, từ 11 tuổi trở xuống, có thể lưu trú miễn phí nếu sử dụng giường có sẵn tại phòng của cha mẹ hoặc người giám hộ</li>
+                                <li>Khách có thể yêu cầu giường gấp/giường phụ với phụ phí 2.350.000 VND mỗi đêm</li>
+                                <li>Cung cấp nôi/cũi miễn phí theo yêu cầu tại nơi lưu trú</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Cột phải: Trả phòng (và có thể thêm mục khác nếu cần) -->
+                    <div class="col-12 col-md-6">
+                        <div class="policy-block mb-4">
+                            <h5 class="policy-title">Trả phòng</h5>
+                            <ul class="policy-list list-unstyled mb-0">
+                                <li>Trả phòng trước 12:00</li>
+                                <li>Việc đáp ứng yêu cầu trả phòng muộn tùy tình hình thực tế</li>
+                                <li>Có thể trả phòng muộn với phụ phí</li>
+                            </ul>
+                        </div>
+
+                        <!-- Nếu có thêm mục khác ở cột phải, ví dụ Chính sách thanh toán, Hủy đặt phòng, ... -->
+                        <!-- Ví dụ:
+                    <div class="policy-block mb-4">
+                      <h5 class="policy-title">Chính sách hủy</h5>
+                      <ul class="policy-list list-unstyled mb-0">
+                        <li>Miễn phí hủy trước ngày X</li>
+                        <li>...</li>
+                      </ul>
+                    </div>
+                    -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- danh gia -->
+        <section id="reviewsSection" class="py-5">
+            <div class="container">
+                <!-- Tiêu đề chính -->
+                <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+                    <h4 class="mb-0">Đánh giá</h4>
+                    <!-- Link đọc tất cả -->
+                    <a href="#" class="text-decoration-none">Đọc tất cả đánh giá</a>
+                </div>
+
+                <!-- Phần rating tổng quan -->
+                <div class="row align-items-center mb-4">
+                    <!-- Điểm trung bình -->
+                    <div class="col-12 col-md-4 d-flex align-items-center mb-3 mb-md-0">
+                        <div class="me-3 text-center">
+                            <div class="display-4 fw-bold mb-0" id="avgRating">4.3</div>
+                            <div class="text-muted">/5.0</div>
+                        </div>
+                        <div>
+                            <!-- Bạn có thể hiển thị sao bằng icon hoặc chữ -->
+                            <div class="mb-1">
+                                <!-- Ví dụ hiển thị sao: 4.3 → 4 sao đầy, 1 sao nửa? Ở đây đơn giản hiển thị icon full/fraction -->
+                                <!-- Hoặc hiện text "Rất tốt" -->
+                                <span class="fw-semibold">Rất tốt</span>
+                            </div>
+                            <div class="text-muted"><span id="totalReviews">27</span> Bình luận</div>
+                        </div>
+                    </div>
+                    <!-- Thanh đánh giá từng hạng mục -->
+                    <div class="col-12 col-md-8">
+                        <div class="row gy-3">
+                            <!-- Mỗi hạng mục -->
+                            <div class="col-12 col-sm-6">
+                                <div class="d-flex justify-content-between">
+                                    <div>Vị trí</div>
+                                    <div class="fw-semibold" id="ratingLocation">4.0</div>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-warning" role="progressbar"
+                                         style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="d-flex justify-content-between">
+                                    <div>Dịch vụ</div>
+                                    <div class="fw-semibold" id="ratingService">4.2</div>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-warning" role="progressbar"
+                                         style="width: 84%;" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="d-flex justify-content-between">
+                                    <div>Sạch sẽ</div>
+                                    <div class="fw-semibold" id="ratingCleanliness">4.5</div>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-warning" role="progressbar"
+                                         style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="d-flex justify-content-between">
+                                    <div>Không gian &amp; Tiện nghi</div>
+                                    <div class="fw-semibold" id="ratingSpace">4.3</div>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-warning" role="progressbar"
+                                         style="width: 86%;" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tóm tắt đánh giá: 2 card song song -->
+                <div id="summarySection" class="row g-4 mb-4">
+                    <!-- Card Tổng quan -->
+                    <div class="col-12 col-md-6">
+                        <div class="summary-card p-3 h-100 d-flex flex-column">
+                            <h6 class="fw-semibold mb-2">Tổng quan</h6>
+                            <p class="mb-1 small text-muted">Dựa theo đánh giá thực tế (Được hỗ trợ bởi AI)</p>
+                            <p class="flex-grow-1 mb-0">Bữa sáng tuyệt vời. Vị trí sát biển, đẹp mắt. Nhân viên thân thiện, hiệu quả. Phòng sạch sẽ.</p>
+                        </div>
+                    </div>
+                    <!-- Card Vị trí -->
+                    <div class="col-12 col-md-6">
+                        <div class="summary-card p-3 h-100 d-flex flex-column">
+                            <h6 class="fw-semibold mb-2">Vị trí</h6>
+                            <p class="mb-1 small text-muted">Dựa theo đánh giá thực tế</p>
+                            <p class="flex-grow-1 mb-0">Vị trí sát biển. Gần chợ. Dễ dàng đi lại bằng phương tiện công cộng. Gần bãi biển phía Bắc.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nút lọc -->
+                <div class="mb-4">
+                    <div class="btn-group" role="group" aria-label="Filter reviews" id="filterButtons">
+                        <button type="button" class="btn btn-outline-primary active" data-filter="all">Tất cả</button>
+                        <button type="button" class="btn btn-outline-primary" data-filter="withImages">Có hình ảnh</button>
+                        <button type="button" class="btn btn-outline-primary" data-filter="4.5plus">4.5+</button>
+                        <button type="button" class="btn btn-outline-primary" data-filter="3.0plus">3.0+</button>
+                    </div>
+                </div>
+
+                <!-- Carousel review cards -->
+                <div id="reviewsCarousel" class="carousel slide" data-bs-ride="false">
+                    <div class="carousel-inner" id="reviewsContainer">
+                        <!-- JavaScript sẽ render các carousel-item chứa review cards -->
+                        <!-- Ví dụ: mỗi carousel-item chứa 2 card trên desktop, 1 trên mobile -->
+                    </div>
+                    <!-- Controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Trước</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Tiếp</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+    </main>
+
+    <!-- footer -->
+    <footer class="footer bg-light pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <!-- Cột 1: Về KTS -->
+                <div class="col-6 col-md-3 mb-4">
+                    <h5 class="footer-heading">Về KTS</h5>
+                    <ul class="list-unstyled footer-list">
+                        <li><a href="#ve-chung-toi">Về chúng tôi</a></li>
+                        <li><a href="#lien-he">Liên hệ chúng tôi</a></li>
+                        <li><a href="#tro-giup">Trợ giúp</a></li>
+                        <li><a href="#tuyen-dung">Tuyển dụng</a></li>
+                    </ul>
+                </div>
+
+                <!-- Cột 2: Sản phẩm -->
+                <div class="col-6 col-md-3 mb-4">
+                    <h5 class="footer-heading">Sản phẩm</h5>
+                    <ul class="list-unstyled footer-list">
+                        <li><a href="#khach-san">Khách sạn</a></li>
+                        <li><a href="#tours">Tours</a></li>
+                        <li><a href="#vui-choi">Vui chơi</a></li>
+                    </ul>
+                </div>
+
+                <!-- Cột 3: Theo dõi chúng tôi -->
+                <div class="col-6 col-md-3 mb-4">
+                    <h5 class="footer-heading">Theo dõi chúng tôi tại</h5>
+                    <div class="d-flex align-items-center">
+                        <!-- Icon Facebook -->
+                        <a href="https://www.facebook.com/tenPage"
+                           target="_blank"
+                           class="me-3 social-icon"
+                           aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <!-- Icon YouTube -->
+                        <a href="https://www.youtube.com/tenKenh"
+                           target="_blank"
+                           class="me-3 social-icon"
+                           aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <!-- Nếu cần thêm icon khác, copy block phía trên và thay class/icon tương ứng -->
+                    </div>
+                </div>
+
+                <!-- Cột 4: Kênh thanh toán -->
+                <div class="col-6 col-md-3 mb-4">
+                    <h5 class="footer-heading">Kênh thanh toán</h5>
+                    <div class="d-flex flex-wrap align-items-center payment-icons">
+                        <!-- Mỗi logo thanh toán có thể là <img> hoặc <i> nếu bạn dùng font/icon kit -->
+                        <!-- Ở đây giả sử bạn có file ảnh nhỏ nằm ở /img/payments/visa.png, mastercard.png, ... -->
+                        <img src="#"
+                             alt="Visa"
+                             class="#" />
+                        <img src="#"
+                             alt="MasterCard"
+                             class="me-2 mb-2 payment-icon" />
+                        <img src="#"
+                             alt="American Express"
+                             class="me-2 mb-2 payment-icon" />
+                        <img src="#"
+                             alt="PayPal"
+                             class="me-2 mb-2 payment-icon" />
+                        <img src="#"
+                             alt="JCB"
+                             class="#" />
+                        <img src="#"
+                             alt="UnionPay"
+                             class="me-2 mb-2 payment-icon" />
+                        <!-- Thêm hoặc bớt logo khác theo thực tế -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- (Nếu muốn) có thể thêm copyright hoặc dòng bản quyền ở đây -->
+            <!--
+            <div class="row mt-4">
+              <div class="col text-center">
+                <p class="mb-0 text-muted">&copy; 2025 KTS Travel. All rights reserved.</p>
+              </div>
+            </div>
+            -->
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JS (nếu cần) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <!-- (Tuỳ chọn) Flatpickr locale tiếng Việt -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/vi.js"></script>
+
+    <script src="js/datphongfin.js"></script>
+
+</body>
+</html>

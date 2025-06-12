@@ -1,0 +1,346 @@
+﻿/* 1) Toàn cục section
+================ */
+.promo-section {
+    background-color: #ffffff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.promo-section .promo-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #333;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* ================
+       2) Container slider
+       ================ */
+.promo-slider-wrapper {
+    position: relative;
+    max-width: 100%; /* giống container Bootstrap */
+    margin: 0 auto;
+    overflow: hidden; /* ẩn phần tràn ra ngoài */
+}
+
+/* Vùng .promo-slider chứa các item thẳng hàng */
+.promo-slider {
+    display: flex;
+    flex-wrap: nowrap; /* ép hàng ngang không cho xuống dòng */
+    overflow-x: auto; /* cho phép cuộn ngang nếu quá nhiều item */
+    scroll-behavior: smooth; /* cuộn mượt khi JS gọi scrollBy */
+}
+
+    /* Ẩn scrollbar mặc định (nếu muốn) */
+    .promo-slider::-webkit-scrollbar {
+        display: none;
+    }
+
+/* stylelint-disable-next-line property-no-unknown */
+
+
+    /* Ẩn trên Chrome/Safari/Edge */
+    .my-scrollable-element::-webkit-scrollbar {
+        display: none;
+    }
+
+/* Mỗi promo-item: dùng Bootstrap grid trong flex box */
+.promo-item {
+    flex: 0 0 auto; /* không co lại, không giãn */
+    width: calc(100% / 3 - 1rem);
+    /* 3 cột trên desktop: (100% - tổng gap)/3 
+         1rem ở đây tượng trưng cho khoảng cách padding ngang 0.5rem mỗi bên */
+    margin: 0 0.5rem; /* khoảng cách giữa các item (ngang) */
+    box-sizing: border-box;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .promo-item:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Ảnh bên trong mỗi promo-item */
+    .promo-item img {
+        width: 100%;
+        height: 260px; /* bạn có thể điều chỉnh chiều cao */
+        object-fit: cover;
+        border-radius: 8px;
+        display: block;
+    }
+
+/* Nút Prev/Next */
+.promo-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    border: none;
+    padding: 10px 14px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+    .promo-nav-btn:hover {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* ================
+       3) Responsive
+       ================ */
+@media (max-width: 992px) {
+    .promo-item {
+        width: calc(100% / 2 - 1rem); /* 2 cột trên tablet */
+    }
+
+        .promo-item img {
+            height: 250px;
+        }
+}
+
+@media (max-width: 576px) {
+    .promo-item {
+        width: calc(100% - 1rem); /* 1 cột trên mobile */
+    }
+
+        .promo-item img {
+            height: 200px;
+        }
+
+    .promo-nav-btn {
+        padding: 8px 12px;
+        font-size: 1.2rem;
+    }
+}
+.why-kts-travel {
+    background-color: #fff;
+    color: #000;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.benefit-icon {
+    width: 60px;
+    height: auto;
+}
+
+.benefit-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.benefit-desc {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #555;
+}
+
+.activity-card {
+    border: 1px solid #eee;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+
+    .activity-card:hover {
+        transform: translateY(-5px);
+    }
+
+.activity-img {
+    height: 180px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.badge-sale {
+    background-color: #ff4d4f;
+    color: white;
+    font-size: 0.75rem;
+    margin-right: 4px;
+}
+
+.activity-body {
+    padding: 1rem;
+}
+
+.activity-title {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.activity-price {
+    font-weight: 600;
+    color: #000;
+}
+
+.activity-old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.9rem;
+    margin-left: 6px;
+}
+
+.rating {
+    color: #f59e0b;
+    font-size: 0.85rem;
+}
+
+.subtext {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+.activity-section h2 {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+.btn-xem-them {
+    background-color: #C6E25A;
+    color: #000;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+    .btn-xem-them:hover {
+        background-color: #b0d84f;
+    }
+
+
+/* ================================
+Style cho slider và các card
+================================ */
+/* Mỗi thẻ .location-card: */
+.location-card {
+    flex: 0 0 auto; /* Không co giãn, không giãn */
+    width: 200px; /* Chiều ngang cố định */
+    margin-right: 16px; /* Khoảng cách giữa các card */
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.location-card img {
+    width: 100%;
+    height: 250px; /* Chiều cao cố định */
+    object-fit: cover; /* Cắt ảnh cho phủ đầy khung */
+    display: block;
+}
+
+.location-card span {
+    position: absolute;
+    bottom: 8px;
+    left: 12px;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    font-size: 1.1rem;
+}
+
+/* Khi hover, hơi phóng to card */
+.location-card:hover {
+    transform: scale(1.03);
+}
+
+/* Vùng slider */
+#slider {
+    display: flex;
+    scroll-behavior: smooth; /* Cuộn mượt */
+    gap: 16px; /* Khoảng cách flex-item */
+    overflow-x: auto; /* Cho phép cuộn ngang */
+}
+
+    /* Ẩn thanh scrollbar mặc định (tuỳ chọn) */
+    #slider::-webkit-scrollbar {
+        display: none;
+    }
+
+/* 1. Cho phép link “bao” toàn bộ card mà không làm mất margin/padding */
+.location-link {
+    display: block; /* để chiếm toàn bộ không gian của .location-card */
+    text-decoration: none; /* loại bỏ gạch chân */
+}
+
+    /* 2. Nếu muốn hover cả khung khi trỏ chuột, chuyển thành pointer */
+    .location-link .location-card:hover {
+        cursor: pointer;
+    }
+
+    /* 3. Nếu cần, bạn có thể reset màu chữ cho <span> bên trong link */
+    .location-link .location-card span {
+        color: #fff; /* giữ chữ trắng như trước */
+    }
+
+    /* 4. Đảm bảo khi hover link, không có underline */
+    .location-link:hover {
+        text-decoration: none;
+    }
+
+/* Nút Prev/Next */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    border: none;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    padding: 10px 12px;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1;
+    transition: background-color 0.2s ease;
+}
+
+    .nav-btn:hover {
+        background-color: #f0f0f0;
+    }
+
+    .nav-btn.left {
+        left: -30px; /* Nhích sang trái ngoài container */
+    }
+
+    .nav-btn.right {
+        right: -30px; /* Nhích sang phải ngoài container */
+    }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .location-card {
+        width: 150px;
+    }
+
+        .location-card img {
+            height: 180px;
+        }
+
+    .nav-btn {
+        padding: 8px 10px;
+        font-size: 1rem;
+    }
+}

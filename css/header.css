@@ -1,0 +1,491 @@
+﻿/* ==========================
+   1. Reset cơ bản (nếu chưa có)
+   ========================== */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================
+   2. Navbar chính
+   ========================== */
+.navbar {
+    background-color: #ffffff;
+    height: 60px; /* Tùy chỉnh cao/thấp của navbar */
+}
+
+.logo-img-kts {
+    max-height: 45px;
+    width: auto;
+}
+
+/* ==========================
+   3. Search Box trong Navbar
+   ========================== */
+.search-box-kts {
+    max-width: 350px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    background-color: #f5f5f5;
+    height: 36px;
+    display: flex;
+    align-items: center;
+}
+
+.search-input-kts {
+    border: none;
+    background: transparent;
+    padding-left: 15px;
+    font-size: 0.9rem;
+    outline: none;
+    height: 100%;
+}
+
+.search-btn-kts {
+    border: none;
+    background: transparent;
+    color: #555;
+    width: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .search-btn-kts:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+
+.search-input-kts:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* ==========================
+   4. Nhóm tài khoản trong Navbar
+   ========================== */
+.flag-img-kts {
+    width: 20px;
+    height: auto;
+}
+
+.navbar-nav .nav-item .nav-link {
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
+}
+
+.navbar-nav .btn.login-btn-kts {
+    border-radius: 4px;
+    padding: 4px 12px;
+    background-color: #00c851 !important;
+    color: #fff !important;
+}
+
+/* ==========================
+   5. Divider giữa Navbar và Menu con
+   ========================== */
+.divider-kts {
+    margin: 0;
+    border: none;
+    height: 1px;
+    background-color: #e0e0e0;
+}
+
+/* ==========================
+   6. Menu full-width (dưới Navbar)
+   ========================== */
+.menu-kts-fullwidth {
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bóng đổ nhẹ như header */
+}
+
+    .menu-kts-fullwidth .menu-item-kts {
+        font-size: 1rem;
+        color: #000;
+        text-decoration: none;
+    }
+
+        .menu-kts-fullwidth .menu-item-kts:hover {
+            color: #28a745 !important;
+        }
+
+/* ==========================
+   7. Responsive cho Navbar & Menu
+   ========================== */
+@media (max-width: 991px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+        .navbar-nav .nav-link,
+        .navbar-nav .btn.login-btn-kts {
+            margin: 0.25rem 0;
+        }
+
+    .search-box-kts {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .menu-kts-fullwidth .container {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+}
+
+
+/* ==========================
+   8. Banner full-width (ngay dưới header)
+   ========================== */
+/* ==========================================
+   1) Banner Container và Ảnh nền full-width
+   ========================================== */
+.banner-kts {
+    position: relative;
+    width: 100%;
+    height: 565px; /* bạn có thể điều chỉnh chiều cao nếu cần */
+    overflow: hidden;
+}
+
+.banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 185%;
+    background-image: url('/img/banner/nhatrang.png'); /* sửa thành URL thật */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    z-index: 1;
+}
+
+/* ==========================================
+   2) Overlay phủ lên trên (full-width)
+   ========================================== */
+.banner-overlay-kts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    /* Không ép nội dung con phải vừa hết width, 
+     chỉ cần canh dọc giữa để nội dung nằm giữa theo chiều cao */
+    display: flex;
+    align-items: center; /* căn dọc giữa */
+    box-sizing: border-box;
+}
+
+/* ==========================================
+   3) Phần “container” bên trong banner để canh giữa (wrapper)
+   ========================================== */
+.banner-inner {
+    /* Tạo khoản giới hạn max-width (giống container của Bootstrap): */
+    max-width: 1140px; /* bạn có thể đổi thành 1200px, 960px… theo ý */
+    width: 100%;
+    margin: 0 auto; /* căn giữa ngang */
+    padding: 0 15px; /* khoảng cách 2 bên khi viewport bé hơn max-width  */
+    box-sizing: border-box;
+}
+
+/* ==========================================
+   4) Nội dung con: banner-content-left
+   ========================================== */
+.banner-content-left {
+    /* Mặc định width: auto; trong banner-inner; 
+     nếu muốn chia thêm, có thể gán max-width ở đây, 
+     nhưng thường không cần */
+    width: 100%;
+    color: #fff;
+    text-align: left; /* Canh trái trong banner-inner */
+}
+
+/* Title & Subtitle */
+.banner-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    margin-bottom: 0.5rem;
+}
+
+.banner-subtitle {
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    margin-bottom: 1.2rem;
+}
+
+/* ==========================================
+   5) Form tìm kiếm
+   ========================================== */
+.banner-search-form {
+    width: 100%;
+    max-width: 800px; /* form không rộng quá */
+    box-sizing: border-box;
+    margin: 0; /* đã nằm trong container, không cần auto */
+}
+
+    .banner-search-form .input-group {
+        display: flex;
+        width: 100%;
+    }
+
+.banner-search-input {
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    padding: 0.6rem 1rem;
+    border: none;
+    font-size: 1rem;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.banner-search-button {
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    padding: 0.6rem 1.2rem;
+    background-color: #00ff00;
+    color: #000;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background-color 0.3s;
+}
+
+    .banner-search-button:hover {
+        background-color: #00cc00;
+    }
+
+/* ==========================================
+   6) Responsive (tối ưu khi co màn hình)
+   ========================================== */
+@media (max-width: 992px) {
+    .banner-bg {
+        background-image: url('/img/banner/Nha-Trang-banner5.jpg');
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .banner-title {
+        font-size: 1.8rem;
+    }
+
+    .banner-subtitle {
+        font-size: 1rem;
+    }
+
+    .banner-search-input {
+        font-size: 0.95rem;
+    }
+
+    .banner-search-button {
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .banner-bg {
+        background-image: url('/img/banner/nhantrang-mobile.jpg');
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .banner-title {
+        font-size: 1.6rem;
+    }
+
+    .banner-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .banner-search-input {
+        font-size: 0.9rem;
+    }
+
+    .banner-search-button {
+        padding: 0.5rem 0.8rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .banner-bg {
+        background-image: url('/img/banner/nhantrang-mobile.jpg');
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .banner-title {
+        font-size: 1.4rem;
+    }
+
+    .banner-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .banner-search-input {
+        font-size: 0.8rem;
+    }
+
+    .banner-search-button {
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+/* ================================
+   1) Style chung cho Footer
+   ================================ */
+.footer {
+    font-family: Arial, sans-serif;
+    color: #555; /* Màu chữ mặc định */
+}
+
+/* Tiêu đề các cột (h5) */
+.footer-heading {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #222;
+}
+
+/* Danh sách link: loại bỏ bullet, thêm khoảng cách */
+.footer-list li {
+    margin-bottom: 0.6rem;
+}
+
+    .footer-list li a {
+        color: #777; /* Màu link */
+        text-decoration: none; /* Bỏ gạch chân */
+        transition: color 0.2s ease;
+        font-size: 0.95rem;
+    }
+
+        .footer-list li a:hover {
+            color: #333; /* Khi hover thì đậm hơn */
+        }
+
+/* ================================
+   2) Style cho Icon Mạng xã hội
+   ================================ */
+.social-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    border: 2px solid #555; /* Viền tròn quanh icon */
+    border-radius: 50%;
+    color: #555;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+    .social-icon:hover {
+        background-color: #555;
+        color: #fff;
+    }
+
+/* ================================
+   3) Style cho Logo Thanh toán
+   ================================ */
+.payment-icon {
+    width: 50px; /* Chiều ngang cố định */
+    height: auto; /* tự động giữ tỉ lệ */
+    object-fit: contain; /* Giữ tỉ lệ ảnh */
+    filter: grayscale(100%); /* Hiệu ứng đen trắng */
+    transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+    .payment-icon:hover {
+        filter: none; /* Khi hover thì hiện màu thật */
+        transform: scale(1.1); /* Kích thước phóng to nhẹ */
+    }
+
+/* ================================
+   4) Responsive/Điều chỉnh thêm
+   ================================ */
+/* Nếu bạn muốn trên <576px các cột thành 1 hàng 1 cột: */
+/*
+@media (max-width: 576px) {
+  .footer .col-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}*/
+
+/* ==== BẮT BUỘC CHÈN CUỐI ==== */
+/* ==== MOBILE ONLY: dưới 992px ==== */
+@media (max-width: 991px) {
+    .navbar {
+        position: relative;
+        z-index: 1000;
+    }
+
+    .navbar-collapse {
+        position: absolute !important;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        padding: 1rem 0;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        z-index: 1001;
+    }
+
+        .navbar-collapse .search-box-kts {
+            width: 90%;
+            max-width: 400px;
+            margin: 0 auto 1rem;
+        }
+
+        .navbar-collapse .navbar-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar-collapse .nav-item {
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
+
+        .navbar-collapse .nav-link,
+        .navbar-collapse .login-btn-kts {
+            width: auto;
+            padding: 0.5rem 1.5rem;
+        }
+
+        .navbar-collapse .dropdown-menu {
+            position: static;
+            float: none;
+            margin-top: 0.25rem;
+        }
+}
+
+/* ==== DESKTOP ONLY: từ 992px trở lên ==== */
+@media (min-width: 992px) {
+    /* Reset mọi thay đổi mobile */
+    .navbar-collapse {
+        position: static !important;
+        top: auto !important;
+        left: auto !important;
+        width: auto !important;
+        background: transparent !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        z-index: auto !important;
+    }
+        /* Bắt buộc hiển thị flex ngang giống Bootstrap gốc */
+        .navbar-collapse.collapse.show {
+            display: flex !important;
+            flex-basis: auto !important;
+        }
+
+    .navbar-nav {
+        flex-direction: row !important;
+        align-items: center !important;
+    }
+}
