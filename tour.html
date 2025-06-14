@@ -147,84 +147,278 @@
         </div>
     </section>
 
-    <!-- Location Section -->
-    <section class="location-section py-4">
-        <div class="container">
-            <div class="row justify-content-center g-4">
-                <div class="col-auto">
-                    <div class="location-card">
-                        <img src="img/anhmau/hcm.png" alt="TP Hồ Chí Minh" loading="lazy">
-                        <div class="location-card-body">
-                            <h6>TP Hồ Chí Minh</h6>
-                            <small>100+ hoạt động</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <div class="location-card">
-                        <img src="img/anhmau/nhatrang.png" alt="Đảo Hòn Tằm" loading="lazy">
-                        <div class="location-card-body">
-                            <h6>Đảo Hòn Tằm</h6>
-                            <small>6 hoạt động</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <div class="location-card">
-                        <img src="img/anhmau/nhatrang.png" alt="Bãi Tranh Nha Trang" loading="lazy">
-                        <div class="location-card-body">
-                            <h6>Bãi Tranh Nha Trang</h6>
-                            <small>6 hoạt động</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <div class="location-card">
-                        <img src="img/anhmau/nhatrang.png" alt="Tháp Bà Ponagar" loading="lazy">
-                        <div class="location-card-body">
-                            <h6>Tháp Bà Ponagar</h6>
-                            <small>8 hoạt động</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <div class="location-card">
-                        <img src="img/anhmau/nhatrang.png" alt="Đà Lạt" loading="lazy">
-                        <div class="location-card-body">
-                            <h6>Đà Lạt</h6>
-                            <small>30 hoạt động</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <div class="location-card">
-                        <img src="img/anhmau/nhatrang.png" alt="Quy Nhơn" loading="lazy">
-                        <div class="location-card-body">
-                            <h6>Quy Nhơn</h6>
-                            <small>5 hoạt động</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <div class="location-card">
-                        <img src="img/anhmau/nhatrang.png" alt="Đà Nẵng" loading="lazy">
-                        <div class="location-card-body">
-                            <h6>Đà Nẵng</h6>
-                            <small>100+ hoạt động</small>
-                        </div>
-                    </div>
-                </div>
-                <!-- Nếu thêm card, copy thêm <div class="col-auto">... -->
-            </div>
-        </div>
-    </section>
+
 
 
 
     <!-- Nếu trang còn nội dung khác, đặt bên dưới banner -->
     <main class="container my-5">
 
+        <section id="offers" class="text-center">
+            <div class="container">
+                <h2>Ưu Đãi Tour</h2>
 
+                <ul class="nav nav-pills justify-content-center mb-5" role="tablist">
+                    <li class="nav-item">
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#domestic">Trong nước</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#international">Ngoài nước</button>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <!-- Trong nước -->
+                    <div class="tab-pane fade show active" id="domestic">
+                        <div class="grid-cards mb-4">
+                            <!-- Card mẫu -->
+                            <div class="card-custom position-relative">
+                                <span class="badge-promo">Ưu đãi hot</span>
+                                <img src="./img/anhmau/tour.png" alt="Tour Buôn Ma Thuột">
+                                <div class="card-body">
+                                    <h5>Buôn Ma Thuột – Pleiku</h5>
+                                    <p class="offer-info">
+                                        Khởi hành: TP. HCM • 15/06/2025 • 4N3Đ
+                                    </p>
+                                    <div class="offer-footer">
+                                        <span class="price">6.399.000₫</span>
+                                        <a href="#" class="btn btn-outline-success btn-detail">Chi tiết</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Clone & chỉnh nội dung cho các card khác -->
+                            <div class="card-custom position-relative">
+                                <img src="./img/anhmau/tour.png" alt="Tour Cần Thơ">
+                                <div class="card-body">
+                                    <h5>Cần Thơ – Châu Đốc</h5>
+                                    <p class="offer-info">
+                                        Khởi hành: TP. HCM • 12/07/2025 • 2N1Đ
+                                    </p>
+                                    <div class="offer-footer">
+                                        <span class="price">4.750.000₫</span>
+                                        <a href="#" class="btn btn-outline-success btn-detail">Chi tiết</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Thêm tối thiểu 3-4 card để lưới đều -->
+                            <div class="card-custom position-relative">
+                                <img src="./img/anhmau/tour.png" alt="Tour Nha Trang">
+                                <div class="card-body">
+                                    <h5>Nha Trang – Vinpearl</h5>
+                                    <p class="offer-info">
+                                        Khởi hành: TP. HCM • 20/07/2025 • 3N2Đ
+                                    </p>
+                                    <div class="offer-footer">
+                                        <span class="price">5.679.000₫</span>
+                                        <a href="#" class="btn btn-outline-success btn-detail">Chi tiết</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="listtour.html" class="btn btn-success btn-all">Xem tất cả</a>
+                    </div>
+
+                    <!-- Ngoài nước -->
+                    <div class="tab-pane fade" id="international">
+                        <div class="grid-cards mb-4">
+                            <div class="card-custom position-relative">
+                                <span class="badge-promo">Tuần lễ ưu đãi</span>
+                                <img src="./img/anhmau/tour.png" alt="Tour Thái Lan">
+                                <div class="card-body">
+                                    <h5>Bangkok – Pattaya</h5>
+                                    <p class="offer-info">
+                                        Khởi hành: TP. HCM • 05/07/2025 • 5N4Đ
+                                    </p>
+                                    <div class="offer-footer">
+                                        <span class="price">10.499.000₫</span>
+                                        <a href="#" class="btn btn-outline-success btn-detail">Chi tiết</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-custom position-relative">
+                                <img src="./img/anhmau/tour.png" alt="Tour Mỹ">
+                                <div class="card-body">
+                                    <h5>Mỹ – Bờ Tây</h5>
+                                    <p class="offer-info">
+                                        Khởi hành: TP. HCM • 15/08/2025 • 7N6Đ
+                                    </p>
+                                    <div class="offer-footer">
+                                        <span class="price">104.999.000₫</span>
+                                        <a href="#" class="btn btn-outline-success btn-detail">Chi tiết</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-custom position-relative">
+                                <img src="./img/anhmau/tour.png" alt="Tour Singapore">
+                                <div class="card-body">
+                                    <h5>Singapore – Gardens by the Bay</h5>
+                                    <p class="offer-info">
+                                        Khởi hành: TP. HCM • 10/09/2025 • 4N3Đ
+                                    </p>
+                                    <div class="offer-footer">
+                                        <span class="price">21.999.000₫</span>
+                                        <a href="#" class="btn btn-outline-success btn-detail">Chi tiết</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="listtour.html" class="btn btn-success btn-all">Xem tất cả</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="promo">
+            <div class="container">
+                <!-- 1. Top banner -->
+                <div class="top-banner">
+                    <img src="./img/banner/tanhuonguudai.png" alt="Banner Đặc Biệt">
+                </div>
+
+                <!-- 2. Tiêu đề + nút -->
+                <div class="section-header">
+                    <h2>ƯU ĐÃI ĐẶC BIỆT – 3 THÁNG HÈ CHỈ CÓ TẠI NHA TRANG</h2>
+                    <button class="btn btn-all">Xem tất cả</button>
+                </div>
+
+                <!-- 3. Grid ảnh: 2/3 bên trái, 1/3 bên phải -->
+                <div class="row promo-grid gx-4 gy-4">
+                    <!-- 3.1 Ảnh lớn bên trái -->
+                    <div class="col-12 col-lg-8">
+                        <div class="main-img">
+                            <img src="./img/banner/tanhuonguudai.png" alt="Ưu đãi lớn">
+                        </div>
+                    </div>
+
+                    <!-- 3.2 Hai ảnh nhỏ bên phải -->
+                    <div class="col-12 col-lg-4">
+                        <div class="side-container">
+                            <div class="side-img">
+                                <img src="./img/banner/tanhuonguudai.png" alt="Ưu đãi nhỏ 1">
+                            </div>
+                            <div class="side-img">
+                                <img src="./img/banner/tanhuonguudai.png" alt="Ưu đãi nhỏ 2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="destinations">
+            <div class="container">
+                <!-- Tiêu đề + mô tả -->
+                <h2>ĐIỂM DU LỊCH HẤP DẪN</h2>
+                <p class="lead">
+                    Saigontourist luôn có những sản phẩm đến các điểm du lịch hấp dẫn …
+                    Du khách dễ theo dõi nhất điểm đến du lịch hấp dẫn để khám phá và tận hưởng!
+                </p>
+
+                <!-- Nav chính -->
+                <ul class="nav nav-pills justify-content-center mb-4 nav-main" role="tablist">
+                    <li class="nav-item">
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-domestic">
+                            Điểm đến trong nước
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-international">
+                            Điểm đến ngoài nước
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <!-- Tab Trong nước -->
+                    <div class="tab-pane fade show active" id="tab-domestic">
+                        <!-- Nav phụ vùng miền -->
+                        <ul class="nav nav-pills justify-content-center mb-4 nav-sub" role="tablist">
+                            <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#region-north">Miền Bắc</button></li>
+                            <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#region-central">Miền Trung</button></li>
+                            <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#region-highlands">Tây Nguyên</button></li>
+                            <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#region-south">Miền Đông Nam Bộ</button></li>
+                            <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#region-mekong">Miền Tây Nam Bộ</button></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <!-- Miền Bắc -->
+                            <div class="tab-pane fade show active" id="region-north">
+                                <div class="row g-4">
+                                    <!-- Lặp card tương tự các cột dưới -->
+                                    <div class="col-6 col-md-3">
+                                        <div class="card-dest">
+                                            <img src="./img/diadiem/hcm.png" alt="Hà Nội">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Hà Nội</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="card-dest">
+                                            <img src="./img/diadiem/hcm.png" alt="Hạ Long">
+                                            <div class="card-body"><h5 class="card-title">Hạ Long</h5></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="card-dest">
+                                            <img src="./img/diadiem/hcm.png" alt="Hà Giang">
+                                            <div class="card-body"><h5 class="card-title">Hà Giang</h5></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="card-dest">
+                                            <img src="./img/diadiem/hcm.png" alt="Ninh Bình">
+                                            <div class="card-body"><h5 class="card-title">Ninh Bình</h5></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="card-dest">
+                                            <img src="./img/diadiem/hcm.png" alt="Sa Pa">
+                                            <div class="card-body"><h5 class="card-title">Sa Pa</h5></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="card-dest">
+                                            <img src="./img/diadiem/hcm.png" alt="Mộc Châu">
+                                            <div class="card-body"><h5 class="card-title">Mộc Châu</h5></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="card-dest">
+                                            <img src="./img/diadiem/hcm.png" alt="Sơn La">
+                                            <div class="card-body"><h5 class="card-title">Sơn La</h5></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="card-dest">
+                                            <img src="./img/diadiem/hcm.png" alt="Điện Biên">
+                                            <div class="card-body"><h5 class="card-title">Điện Biên</h5></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Miền Trung, Tây Nguyên… để trống hoặc lặp tương tự -->
+                            <div class="tab-pane fade" id="region-central">…</div>
+                            <div class="tab-pane fade" id="region-highlands">…</div>
+                            <div class="tab-pane fade" id="region-south">…</div>
+                            <div class="tab-pane fade" id="region-mekong">…</div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Ngoài nước (nếu cần) -->
+                    <div class="tab-pane fade" id="tab-international">
+                        <!-- Lặp cấu trúc nav-sub + tab-content tương tự -->
+                        Nội dung “ngoài nước”…
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
     </main>

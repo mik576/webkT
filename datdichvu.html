@@ -1,0 +1,583 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KTS Travel</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+          rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+          rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+
+    <!-- Link đến file CSS riêng (ở đây giả sử đặt tên head.css) -->
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/datdichvu.css" />
+</head>
+
+<body>
+
+    <!-- ===== Header: Navbar + Menu ===== -->
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="./img/logo/KTS_TV_Logo_2.png"
+                         alt="KTS Travel"
+                         class="logo-img-kts" />
+                </a>
+
+                <!-- Toggle button (cho mobile) -->
+                <button class="navbar-toggler border-0"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarContent"
+                        aria-controls="navbarContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Nội dung Navbar -->
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <!-- Search Box -->
+                    <form class="d-flex ms-lg-4 me-lg-auto my-2 my-lg-0" role="search">
+                        <div class="input-group search-box-kts">
+                            <input type="text"
+                                   class="form-control search-input-kts"
+                                   placeholder="Tìm theo điểm đến" />
+                            <button class="btn btn-outline-secondary search-btn-kts" type="submit">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Nhóm tài khoản & ngôn ngữ -->
+                    <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-3">
+                        <!-- Dropdown ngôn ngữ -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center p-0"
+                               href="#"
+                               id="dropdownLang"
+                               role="button"
+                               data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                <img src="https://flagcdn.com/w20/vn.png"
+                                     alt="VN"
+                                     class="flag-img-kts me-1" />
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownLang">
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="?lang=vi">
+                                        <img src="https://flagcdn.com/w20/vn.png" class="me-2" />
+                                        Tiếng Việt
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="?lang=en">
+                                        <img src="https://flagcdn.com/w20/us.png" class="me-2" />
+                                        English
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="?lang=jp">
+                                        <img src="https://flagcdn.com/w20/jp.png" class="me-2" />
+                                        日本語
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Trợ giúp, xem gần đây, đăng ký, đăng nhập -->
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="/help">Trợ giúp</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="/recent">xem gần đây</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="/register">Đăng ký</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-success btn-sm login-btn-kts ms-2" href="/login.html">Đăng nhập</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Divider (dòng ngăn cách) -->
+        <hr class="divider-kts m-0" />
+
+        <!-- Menu full-width bên dưới Navbar -->
+        <nav class="menu-kts-fullwidth">
+            <div class="container d-flex justify-content-center gap-4 py-2">
+                <a href="dichvu.html" class="menu-item-kts">trải nghiệm</a>
+                <a href="accommodation.html" class="menu-item-kts">khách sạn</a>
+                <a href="tour.html" class="menu-item-kts">Tour</a>
+                <a href="#" class="menu-item-kts">Khám phá KTSTRAVEL</a>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <!-- Nếu trang còn nội dung khác, đặt bên dưới banner -->
+    <main class="container my-5">
+
+        <!-- Section Header (giữ nguyên như trước) -->
+        <section id="ticket-monkey-island" class="mb-5">
+            <div class="container">
+                <!-- Header vé -->
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4">
+                    <div>
+                        <h1 class="ticket-title mb-2">Vé Đảo Khỉ Nha Trang</h1>
+                        <div class="d-flex flex-wrap align-items-center gap-2 ticket-meta">
+                            <!-- Rating -->
+                            <span class="rating d-flex align-items-center">
+                                <i class="bi bi-star-fill text-warning me-1"></i>
+                                <span class="fw-semibold">4.3</span>
+                            </span>
+                            <!-- Số đánh giá -->
+                            <a href="#" class="reviews text-decoration-none text-secondary">(<span class="fw-semibold">129</span> đánh giá)</a>
+                            <!-- Đã đặt -->
+                            <span class="text-secondary">• 4K+ Đã đặt</span>
+                            <!-- Tag địa điểm -->
+                            <span class="text-secondary">• Đảo Khỉ Nha Trang</span>
+                        </div>
+                    </div>
+                    <!-- Nút Yêu thích -->
+                    <button type="button" class="btn btn-outline-danger btn-sm mt-3 mt-md-0">
+                        <i class="bi bi-heart"></i> Yêu thích
+                    </button>
+                </div>
+
+                <!-- Gallery ảnh -->
+                <div class="gallery row g-3">
+                    <!-- Ảnh lớn bên trái -->
+                    <div class="col-md-8">
+                        <div class="gallery-main position-relative overflow-hidden rounded-3">
+                            <img src="./img/anhmau/monkey.png" alt="Vé Đảo Khỉ Nha Trang" class="img-fluid w-100" style="min-height: 350px; object-fit: cover;" loading="lazy">
+                            <!-- Có thể thêm overlay icon play hoặc badge nếu cần -->
+                        </div>
+                    </div>
+                    <!-- Ảnh phụ bên phải -->
+                    <div class="col-md-4 d-flex flex-column gap-3">
+                        <div class="gallery-thumb overflow-hidden rounded-3" style="flex:1;">
+                            <img src="./img/anhmau/monkey.png" alt="Ảnh Đảo Khỉ 1" class="img-fluid w-100 h-100" style="object-fit: cover;" loading="lazy">
+                        </div>
+                        <div class="gallery-thumb overflow-hidden rounded-3" style="flex:1;">
+                            <img src="./img/anhmau/monkey.png" alt="Ảnh Đảo Khỉ 2" class="img-fluid w-100 h-100" style="object-fit: cover;" loading="lazy">
+                        </div>
+                        <!-- Nếu muốn thêm 1 thumb nữa, copy div.gallery-thumb -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="offers-wrapper" class="py-5">
+            <div class="row g-4">
+
+                <!-- Cột trái: Nội dung chính -->
+                <div class="col-lg-8">
+
+                    <!-- Intro & Ưu đãi -->
+                    <div class="intro-box mb-4">
+                        <ul class="ps-3 mb-2">
+                            <li>Khám phá “hoa quả sơn” giữa đại dương – nơi có thiên nhiên xanh mát, phong cảnh đẹp như tranh…</li>
+                            <li>Vui chơi với hơn 1200 cá thể khi được nuôi dưỡng và bảo tồn trong môi trường sống tự nhiên.</li>
+                        </ul>
+                        <a href="#" class="more-link">Xem thêm &gt;</a>
+                    </div>
+
+                    <!-- Discounts -->
+                    <div class="discounts-bar d-inline-flex align-items-center mb-3">
+                        <span class="me-2">Ưu đãi cho bạn</span>
+                        <span class="badge bg-discount me-1">Giảm 4%</span>
+                        <span class="badge bg-sale me-1">Sale</span>
+                        <span class="badge bg-discount">Giảm 10%</span>
+                    </div>
+
+                    <!-- Tabs Ngày -->
+                    <h4 class="section-title mb-3"><span>Các gói dịch vụ</span></h4>
+                    <ul class="nav nav-pills offer-tabs mb-3" role="tablist">
+                        <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab1">Ngày mai</button></li>
+                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab2">14/6</button></li>
+                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab3">15/6</button></li>
+                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab4">Tất cả ngày</button></li>
+                    </ul>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="tab1">
+                            <div class="accordion" id="servicesAccordion">
+                                <!-- Gói 1 -->
+                                <div class="accordion-item service-card mb-3">
+                                    <h2 class="accordion-header" id="h1">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c1">
+                                            Vé vào cổng Đảo Khỉ
+                                        </button>
+                                    </h2>
+                                    <div id="c1" class="accordion-collapse collapse" data-bs-parent="#servicesAccordion">
+                                        <div class="accordion-body">
+                                            <div class="small text-muted mb-1">Hủy miễn phí 24 giờ • Xác nhận tức thì</div>
+                                            <div class="tag-group mb-2">
+                                                <span class="badge bg-discount">Giảm 4%</span>
+                                                <span class="badge bg-discount">Giảm 20%</span>
+                                                <span class="badge bg-discount">Giảm 10%</span>
+                                            </div>
+                                            <div class="small text-muted">Người lớn: ₫ 153,900 • Trẻ em: ₫ 85,500</div>
+                                            <div class="text-success small mt-1"><i class="bi bi-calendar-check"></i> Đặt trước cho ngày mai</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Gói 2 -->
+                                <div class="accordion-item service-card">
+                                    <h2 class="accordion-header" id="h2">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c2">
+                                            Combo Vé Đảo Khỉ và Đảo Hoa Lan
+                                        </button>
+                                    </h2>
+                                    <div id="c2" class="accordion-collapse collapse" data-bs-parent="#servicesAccordion">
+                                        <div class="accordion-body">
+                                            <div class="small text-muted mb-1">Hủy miễn phí 24 giờ • Xác nhận tức thì</div>
+                                            <div class="tag-group mb-2">
+                                                <span class="badge bg-discount">Giảm 4%</span>
+                                                <span class="badge bg-discount">Giảm 20%</span>
+                                            </div>
+                                            <div class="small text-muted">Người lớn: ₫ 358,000 • Trẻ em: ₫ 179,000</div>
+                                            <div class="text-success small mt-1"><i class="bi bi-calendar-check"></i> Đặt trước cho ngày mai</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tab khác -->
+                        <div class="tab-pane fade" id="tab2">Chưa có gói cho 14/6.</div>
+                        <div class="tab-pane fade" id="tab3">Chưa có gói cho 15/6.</div>
+                        <div class="tab-pane fade" id="tab4">Tất cả gói dịch vụ hiển thị tại đây.</div>
+                    </div>
+
+                    <!-- Mô tả -->
+                    <div class="service-desc mt-5">
+                        <h5>Về dịch vụ này</h5>
+                        <p>
+                            Đảo Khỉ (Hòn Lao) – Chèo canoe hoặc đi cano cao tốc từ cảng Đá Chồng, gặp gỡ khỉ hoang dã, xem biểu diễn xiếc, thỏa sức chụp hình và tắm biển.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Cột phải: Giá và CTA -->
+                <div class="col-lg-4">
+                    <div class="sticky-top" style="top:100px;">
+                        <div class="price-box text-center">
+                            <div class="from-label mb-1">Từ</div>
+                            <div class="price-now mb-2">₫ 132,525 <span class="price-old">₫ 180,000</span></div>
+                            <button class="btn btn-cta w-100">Chọn các gói dịch vụ</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="review-summary" class="py-4">
+            <div class="container">
+
+                <!-- Tiêu đề -->
+                <h5 class="text-uppercase fw-bold mb-3">Đánh giá</h5>
+
+                <!-- Điểm & sao & tổng lượt -->
+                <div class="d-flex align-items-center mb-3">
+                    <h2 class="mb-0 me-3">4.6<span class="fs-5 text-muted">/5</span></h2>
+                    <div class="star-rating me-3">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-half text-warning"></i>
+                    </div>
+                    <small class="text-muted">Dựa trên 0 lượt đánh giá</small>
+                </div>
+
+                <!-- Album hình -->
+                <div class="d-flex align-items-center mb-3">
+                    <div class="me-3">
+                        <strong>Album hình</strong>
+                        <span class="text-muted">0 ảnh</span>
+                    </div>
+                    <a href="#" class="more-link">Xem thêm</a>
+                </div>
+
+                <!-- Bộ lọc -->
+                <div class="d-flex flex-wrap align-items-center gap-2">
+                    <button class="btn btn-outline-secondary btn-sm active">Tất cả</button>
+                    <button class="btn btn-outline-secondary btn-sm">Hình ảnh</button>
+                    <button class="btn btn-outline-secondary btn-sm">4.0+</button>
+                    <button class="btn btn-outline-secondary btn-sm">3.0~</button>
+                    <button class="btn btn-outline-secondary btn-sm">3.0</button>
+
+                    <select class="form-select form-select-sm ms-auto" style="width: auto;">
+                        <option selected>Đánh giá phù hợp nhất</option>
+                        <option>Gần đây nhất</option>
+                        <option>Điểm cao nhất</option>
+                        <option>Điểm thấp nhất</option>
+                    </select>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Bạn có thể sẽ thích -->
+        <section class="mt-5">
+            <div class="container">
+                <h5 class="section-title">Bạn có thể sẽ thích</h5>
+                <div id="recommendations" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <!-- Slide 1 -->
+                        <div class="carousel-item active">
+                            <div class="d-flex gap-3 overflow-auto">
+
+                                <!-- Card 1 -->
+                                <div class="card flex-shrink-0" style="width: 18rem;">
+                                    <img src="./img/anhmau/nhatrang.png"
+                                         class="card-img-top"
+                                         alt="Gói Tắm Bùn I Resort Nha Trang"
+                                         loading="lazy">
+                                    <div class="card-body p-2">
+                                        <h6 class="card-title mb-1">Gói Tắm Bùn I Resort Nha Trang</h6>
+                                        <p class="card-text small text-muted mb-1">Suối nước nóng • Nha Trang</p>
+                                        <div class="d-flex align-items-center mb-1">
+                                            <i class="bi bi-star-fill text-warning me-1"></i>
+                                            <small>4.6</small>
+                                            <small class="text-muted ms-1">(1,829)</small>
+                                        </div>
+                                        <div class="fw-bold">₫ 173,627</div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 2 -->
+                                <div class="card flex-shrink-0" style="width: 18rem;">
+                                    <img src="./img/anhmau/nhatrang.png"
+                                         class="card-img-top"
+                                         alt="Trải nghiệm Aramsa Spa & Massage"
+                                         loading="lazy">
+                                    <div class="card-body p-2">
+                                        <h6 class="card-title mb-1">Trải nghiệm Aramsa Spa & Massage</h6>
+                                        <p class="card-text small text-muted mb-1">Spa & Massage • Nha Trang</p>
+                                        <div class="d-flex align-items-center mb-1">
+                                            <i class="bi bi-star-fill text-warning me-1"></i>
+                                            <small>4.9</small>
+                                            <small class="text-muted ms-1">(87)</small>
+                                        </div>
+                                        <div class="fw-bold text-decoration-line-through text-muted small">₫ 100,000</div>
+                                        <div class="fw-bold">₫ 87,500</div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 3 -->
+                                <div class="card flex-shrink-0" style="width: 18rem;">
+                                    <img src="./img/anhmau/nhatrang.png"
+                                         class="card-img-top"
+                                         alt="Nha Trang Bus City Tour"
+                                         loading="lazy">
+                                    <div class="card-body p-2">
+                                        <h6 class="card-title mb-1">Nha Trang Bus City Tour</h6>
+                                        <p class="card-text small text-muted mb-1">Hop on hop off</p>
+                                        <div class="d-flex align-items-center mb-1">
+                                            <i class="bi bi-star-fill text-warning me-1"></i>
+                                            <small>4.7</small>
+                                            <small class="text-muted ms-1">(29)</small>
+                                        </div>
+                                        <div class="fw-bold">₫ 100,000</div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 4 -->
+                                <div class="card flex-shrink-0" style="width: 18rem;">
+                                    <img src="./img/anhmau/nhatrang.png"
+                                         class="card-img-top"
+                                         alt="Buffet Hải Sản Tại Novotel Nha Trang"
+                                         loading="lazy">
+                                    <div class="card-body p-2">
+                                        <h6 class="card-title mb-1">Buffet Hải Sản Tại Novotel Nha Trang</h6>
+                                        <p class="card-text small text-muted mb-1">Ẩm thực • Nha Trang</p>
+                                        <div class="d-flex align-items-center mb-1">
+                                            <i class="bi bi-star-fill text-warning me-1"></i>
+                                            <small>4.5</small>
+                                            <small class="text-muted ms-1">(800+)</small>
+                                        </div>
+                                        <div class="fw-bold text-decoration-line-through text-muted small">₫ 799,300</div>
+                                        <div class="fw-bold">₫ 559,300</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#recommendations" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#recommendations" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Điểm đến theo xu hướng -->
+        <section class="mt-5">
+            <div class="container">
+                <h5 class="section-title">Điểm đến theo xu hướng</h5>
+                <div class="d-flex gap-3 overflow-auto pt-2">
+
+                    <div class="text-center flex-shrink-0" style="width: 8rem;">
+                        <img src="./img/anhmau/nhatrang.png"
+                             class="placeholder-img-small mb-2"
+                             alt="Tháp Bà Ponagar"
+                             loading="lazy">
+                        <small>Tháp Bà Ponagar</small>
+                    </div>
+
+                    <div class="text-center flex-shrink-0" style="width: 8rem;">
+                        <img src="./img/anhmau/nhatrang.png"
+                             class="placeholder-img-small mb-2"
+                             alt="Đảo Hòn Tằm"
+                             loading="lazy">
+                        <small>Đảo Hòn Tằm</small>
+                    </div>
+
+                    <div class="text-center flex-shrink-0" style="width: 8rem;">
+                        <img src="./img/anhmau/nhatrang.png"
+                             class="placeholder-img-small mb-2"
+                             alt="Bãi Tranh Nha Trang"
+                             loading="lazy">
+                        <small>Bãi Tranh Nha Trang</small>
+                    </div>
+
+                    <div class="text-center flex-shrink-0" style="width: 8rem;">
+                        <img src="./img/anhmau/nhatrang.png"
+                             class="placeholder-img-small mb-2"
+                             alt="Vịnh Hạ Long"
+                             loading="lazy">
+                        <small>Vịnh Hạ Long</small>
+                    </div>
+
+                    <div class="text-center flex-shrink-0" style="width: 8rem;">
+                        <img src="./img/anhmau/nhatrang.png"
+                             class="placeholder-img-small mb-2"
+                             alt="Sun World Bà Nà Hills"
+                             loading="lazy">
+                        <small>Sun World Bà Nà Hills</small>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- footer -->
+    <footer class="footer bg-light pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <!-- Cột 1: Về KTS -->
+                <div class="col-6 col-md-3 mb-4">
+                    <h5 class="footer-heading">Về KTS</h5>
+                    <ul class="list-unstyled footer-list">
+                        <li><a href="#ve-chung-toi">Về chúng tôi</a></li>
+                        <li><a href="#lien-he">Liên hệ chúng tôi</a></li>
+                        <li><a href="#tro-giup">Trợ giúp</a></li>
+                        <li><a href="#tuyen-dung">Tuyển dụng</a></li>
+                    </ul>
+                </div>
+
+                <!-- Cột 2: Sản phẩm -->
+                <div class="col-6 col-md-3 mb-4">
+                    <h5 class="footer-heading">Sản phẩm</h5>
+                    <ul class="list-unstyled footer-list">
+                        <li><a href="#khach-san">Khách sạn</a></li>
+                        <li><a href="#tours">Tours</a></li>
+                        <li><a href="#vui-choi">Vui chơi</a></li>
+                    </ul>
+                </div>
+
+                <!-- Cột 3: Theo dõi chúng tôi -->
+                <div class="col-6 col-md-3 mb-4">
+                    <h5 class="footer-heading">Theo dõi chúng tôi tại</h5>
+                    <div class="d-flex align-items-center">
+                        <!-- Icon Facebook -->
+                        <a href="https://www.facebook.com/tenPage"
+                           target="_blank"
+                           class="me-3 social-icon"
+                           aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <!-- Icon YouTube -->
+                        <a href="https://www.youtube.com/tenKenh"
+                           target="_blank"
+                           class="me-3 social-icon"
+                           aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <!-- Nếu cần thêm icon khác, copy block phía trên và thay class/icon tương ứng -->
+                    </div>
+                </div>
+
+                <!-- Cột 4: Kênh thanh toán -->
+                <div class="col-6 col-md-3 mb-4">
+                    <h5 class="footer-heading">Kênh thanh toán</h5>
+                    <div class="d-flex flex-wrap align-items-center payment-icons">
+                        <!-- Mỗi logo thanh toán có thể là <img> hoặc <i> nếu bạn dùng font/icon kit -->
+                        <!-- Ở đây giả sử bạn có file ảnh nhỏ nằm ở ./img/payments/visa.png, mastercard.png, ... -->
+                        <img src="#"
+                             alt="Visa"
+                             class="#" />
+                        <img src="#"
+                             alt="MasterCard"
+                             class="me-2 mb-2 payment-icon" />
+                        <img src="#"
+                             alt="American Express"
+                             class="me-2 mb-2 payment-icon" />
+                        <img src="#"
+                             alt="PayPal"
+                             class="me-2 mb-2 payment-icon" />
+                        <img src="#"
+                             alt="JCB"
+                             class="#" />
+                        <img src="#"
+                             alt="UnionPay"
+                             class="me-2 mb-2 payment-icon" />
+                        <!-- Thêm hoặc bớt logo khác theo thực tế -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- (Nếu muốn) có thể thêm copyright hoặc dòng bản quyền ở đây -->
+            <!--
+            <div class="row mt-4">
+              <div class="col text-center">
+                <p class="mb-0 text-muted">&copy; 2025 KTS Travel. All rights reserved.</p>
+              </div>
+            </div>
+            -->
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JS (nếu cần) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/indexmain.js"></script>
+
+</body>
+</html>

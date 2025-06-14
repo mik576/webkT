@@ -312,7 +312,7 @@ html, body {
 
 @media (max-width: 400px) {
     .banner-bg {
-        background-image: url('/img/banner/nhantrang-mobile.jpg');
+        background-image: url('./img/banner/nhantrang-mobile.jpg');
         background-position: center center;
         background-size: cover;
     }

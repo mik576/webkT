@@ -1,0 +1,208 @@
+﻿:root {
+    --primary-color: #28a745;
+    --primary-hover: #218838;
+    --light-bg: #f5f8fa;
+    --border-color: #e0e0e0;
+    --text-muted: #6c757d;
+}
+/* Body & Main */
+body {
+    background-color: var(--light-bg);
+}
+
+main {
+    background-color: #fff;
+}
+
+/* Section wrapper */
+.search-section {
+    padding: 2rem 0;
+}
+
+    .search-section .filter-panel,
+    .search-section .tour-item {
+        border: 1px solid var(--border-color);
+        border-radius: 0.5rem;
+        background: #fff;
+    }
+
+    .search-section .filter-panel {
+    
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .search-section .card-header {
+        background: #fff;
+        border-bottom: 1px solid var(--border-color);
+        font-weight: 600;
+    }
+
+/* Sort select */
+.sort-select {
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 0.75rem;
+    min-width: 180px;
+}
+
+/* Active tag */
+.active-tag .badge {
+    background: var(--light-bg);
+    color: #333;
+    border-radius: 0.5rem;
+    padding: 0.3em 0.8em;
+    font-size: 0.9rem;
+}
+
+    .active-tag .badge a {
+        color: #333;
+        text-decoration: none;
+    }
+
+        .active-tag .badge a:hover {
+            color: var(--primary-color);
+        }
+
+/* Tour items */
+.tour-item {
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    transition: background 0.2s;
+}
+
+    .tour-item:hover {
+        background: var(--light-bg);
+    }
+
+.tour-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+
+.tour-image .badge {
+    background: var(--primary-color);
+    color: #fff;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 0.75rem;
+    border-radius: 0.25rem;
+    padding: 0.4em 0.6em;
+}
+
+.tour-body {
+    padding: 1rem;
+}
+
+    .tour-body h5 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+.tour-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.tour-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.meta {
+    font-size: 0.85rem;
+    color: #868e96;
+    margin: 0 1rem;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+    .btn-primary:hover {
+        background: var(--primary-hover);
+        border-color: var(--primary-hover);
+    }
+
+/* Địa điểm: no-checkbox + collapse */
+.destination-label {
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.toggle-icon {
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: transform 0.2s;
+}
+
+    .toggle-icon[aria-expanded="true"] {
+        transform: rotate(90deg);
+    }
+
+.sub-destination {
+    display: block;
+    padding: 0.25rem 0;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 767.98px) {
+    .tour-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+        .tour-footer a {
+            margin-top: 0.75rem;
+        }
+}
+
+/* Chủ đề filter */
+.card .form-check {
+    display: flex;
+    align-items: center;
+}
+
+.card .form-check-input {
+    margin-right: 0.5rem;
+}
+
+.card .badge-pill {
+    background-color: var(--border);
+    color: #495057;
+}
+
+/* Toggle icon rotate */
+.toggle-btn[aria-expanded="true"] .toggle-icon {
+    transform: rotate(90deg);
+}
+
+/* Tour card hover */
+.tour-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Chỉnh badge chủ đề */
+.card .badge {
+    font-size: 0.85rem;
+}
+

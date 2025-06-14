@@ -244,3 +244,271 @@ body, html {
 			font-size: 0.7rem;
 		}
 }
+
+#offers {
+	--primary-color: #C7EA46;
+	padding: 3rem 0;
+	
+}
+
+	#offers h2 {
+		color: var(--primary-color);
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+	}
+
+	#offers .nav-pills .nav-link {
+		border-radius: 2rem;
+		padding: .5rem 1.25rem;
+		font-weight: 500;
+	}
+
+		#offers .nav-pills .nav-link.active {
+			background: var(--primary-color);
+			color: #fff;
+		}
+
+	#offers .grid-cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+		gap: 1.5rem;
+	}
+
+	#offers .card-custom {
+		border: none;
+		border-radius: .75rem;
+		overflow: hidden;
+		box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+		transition: transform .2s, box-shadow .2s;
+		background: #fff;
+	}
+
+		#offers .card-custom:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+		}
+
+		#offers .card-custom img {
+			height: 160px;
+			object-fit: cover;
+			width: 100%;
+		}
+
+	#offers .badge-promo {
+		position: absolute;
+		top: 0.75rem;
+		left: 0.75rem;
+		background: var(--primary-color);
+		color: #fff;
+		font-size: .75rem;
+		padding: .25em .6em;
+		border-radius: .5rem;
+	}
+
+	#offers .card-body {
+		padding: 1rem;
+	}
+
+		#offers .card-body h5 {
+			font-size: 1.1rem;
+			margin-bottom: .5rem;
+			font-weight: 600;
+		}
+
+	#offers .offer-info {
+		font-size: .85rem;
+		color: #555;
+		margin-bottom: .75rem;
+		line-height: 1.4;
+	}
+
+	#offers .offer-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	#offers .price {
+		color: #e63946;
+		font-weight: 700;
+	}
+
+	#offers .btn-detail {
+		border-radius: 2rem;
+		padding: .25rem .75rem;
+		font-size: .85rem;
+	}
+
+	#offers .btn-all {
+		border-radius: 2rem;
+		padding: .6rem 2rem;
+		font-weight: 600;
+	}
+
+/* Scoped CSS cho #promo */
+#promo {
+	padding-bottom: 3rem;
+	background: #fff;
+}
+
+	#promo .top-banner img {
+		width: 100%;
+		height: auto;
+		border-radius: .75rem;
+		display: block;
+		object-fit: cover;
+	}
+
+	#promo .section-header {
+		text-align: center;
+		margin: 1.5rem 0;
+	}
+
+		#promo .section-header h2 {
+			font-size: 1.5rem;
+			color: #0d6efd;
+			font-weight: 600;
+		}
+
+		#promo .section-header .btn-all {
+			margin-top: .75rem;
+			border-radius: 50px;
+			padding: .4rem 1.8rem;
+			font-size: .9rem;
+			color: #0d6efd;
+			border: 2px solid #0d6efd;
+			background: transparent;
+			transition: .2s;
+		}
+
+			#promo .section-header .btn-all:hover {
+				background: #0d6efd;
+				color: #fff;
+			}
+
+.promo-grid {
+	margin-top: 1rem;
+}
+/* Main image container: giữ tỉ lệ 16:9, max-width không vượt container */
+.main-img {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	border-radius: .75rem;
+	overflow: hidden;
+	background: #f2f2f2;
+}
+
+	.main-img img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+/* Side images: mỗi ảnh aspect 16:9, cao bằng 50% tổng cột (chia đều) */
+.side-container {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	height: 100%;
+}
+
+.side-img {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	border-radius: .75rem;
+	overflow: hidden;
+	background: #f2f2f2;
+}
+
+	.side-img img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+/* Responsive: trên mobile, giảm gap */
+@media (max-width: 767px) {
+	.side-container {
+		gap: .75rem;
+	}
+}
+
+#destinations {
+	padding: 4rem 0;
+	background: #fff;
+	color: #02437f;
+}
+
+	#destinations h2 {
+		font-weight: 700;
+		margin-bottom: 1rem;
+		text-align: center;
+	}
+
+	#destinations .lead {
+		text-align: center;
+		max-width: 700px;
+		margin: 0 auto 2rem;
+		color: #555;
+	}
+	/* Nav chính */
+	#destinations .nav-main .nav-link {
+		color: #02437f;
+		font-weight: 600;
+	}
+
+		#destinations .nav-main .nav-link.active {
+			color: #fff;
+			background: #02437f;
+			border-radius: .25rem;
+		}
+	/* Nav phụ */
+	#destinations .nav-sub .nav-link {
+		color: #02437f;
+		font-weight: 500;
+		font-size: .9rem;
+	}
+
+		#destinations .nav-sub .nav-link.active {
+			color: #fff;
+			background: #02437f;
+			border-radius: .25rem;
+		}
+	/* Card điểm đến */
+	#destinations .card-dest {
+		border: none;
+		border-radius: .5rem;
+		overflow: hidden;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+		transition: transform .2s;
+	}
+
+		#destinations .card-dest:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+		}
+
+		#destinations .card-dest img {
+			width: 100%;
+			height: 140px;
+			object-fit: cover;
+		}
+
+		#destinations .card-dest .card-body {
+			padding: .75rem;
+			text-align: center;
+		}
+
+		#destinations .card-dest .card-title {
+			font-size: 1rem;
+			font-weight: 600;
+			margin-bottom: 0;
+			color: #02437f;
+		}

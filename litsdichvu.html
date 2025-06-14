@@ -1,0 +1,384 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KTS Travel</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+          rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+          rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+
+
+
+    <!-- Link đến file CSS riêng (ở đây giả sử đặt tên head.css) -->
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/listdichvu.css" />
+</head>
+
+<body>
+
+    <!-- ===== Header: Navbar + Menu ===== -->
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="/img/logo/KTS_TV_Logo_2.png"
+                         alt="KTS Travel"
+                         class="logo-img-kts" />
+                </a>
+
+                <!-- Toggle button (cho mobile) -->
+                <button class="navbar-toggler border-0"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarContent"
+                        aria-controls="navbarContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Nội dung Navbar -->
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <!-- Search Box -->
+                    <form class="d-flex ms-lg-4 me-lg-auto my-2 my-lg-0" role="search">
+                        <div class="input-group search-box-kts">
+                            <input type="text"
+                                   class="form-control search-input-kts"
+                                   placeholder="Tìm theo điểm đến" />
+                            <button class="btn btn-outline-secondary search-btn-kts" type="submit">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Nhóm tài khoản & ngôn ngữ -->
+                    <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-3">
+                        <!-- Dropdown ngôn ngữ -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center p-0"
+                               href="#"
+                               id="dropdownLang"
+                               role="button"
+                               data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                <img src="https://flagcdn.com/w20/vn.png"
+                                     alt="VN"
+                                     class="flag-img-kts me-1" />
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownLang">
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="?lang=vi">
+                                        <img src="https://flagcdn.com/w20/vn.png" class="me-2" />
+                                        Tiếng Việt
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="?lang=en">
+                                        <img src="https://flagcdn.com/w20/us.png" class="me-2" />
+                                        English
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="?lang=jp">
+                                        <img src="https://flagcdn.com/w20/jp.png" class="me-2" />
+                                        日本語
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Trợ giúp, xem gần đây, đăng ký, đăng nhập -->
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="/help">Trợ giúp</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="/recent">xem gần đây</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="/register">Đăng ký</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-success btn-sm login-btn-kts ms-2" href="/login.html">Đăng nhập</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Divider (dòng ngăn cách) -->
+        <hr class="divider-kts m-0" />
+
+        <!-- Menu full-width bên dưới Navbar -->
+        <nav class="menu-kts-fullwidth">
+            <div class="container d-flex justify-content-center gap-4 py-2">
+                <a href="#" class="menu-item-kts">trải nghiệm</a>
+                <a href="#" class="menu-item-kts">khách sạn</a>
+                <a href="#" class="menu-item-kts">Tour</a>
+                <a href="#" class="menu-item-kts">Khám phá KTSTRAVEL</a>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- Nếu trang còn nội dung khác, đặt bên dưới banner -->
+    <main class="container-fluid px-0">
+        <section class="search-section py-5 bg-light">
+            <div class="container bg-light ">
+                <div class="row">
+                    <!-- Sidebar Filters -->
+                    <aside class="col-lg-3 mb-4">
+                        <div class="card shadow-sm mb-4">
+                            <div class="card-header">Từ khóa</div>
+                            <div class="card-body">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Tìm kiếm theo tên">
+                                    <span class="input-group-text"><i class="bi bi-search"></i></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card shadow-sm mb-4">
+                            <div class="card-header">Địa điểm</div>
+                            <ul class="list-group list-group-flush">
+                                <!-- Singapore -->
+                                <li class="list-group-item p-0">
+                                    <div class="d-flex justify-content-between align-items-center px-3 py-2">
+                                        <span class="fw-medium">Singapore (1)</span>
+                                        <button class="btn btn-sm btn-light p-0 toggle-btn"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#dest1"
+                                                aria-expanded="false">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </button>
+                                    </div>
+                                    <!-- Đặt ul.collapse bên trong chính <li> này -->
+                                    <ul id="dest1" class="collapse list-unstyled ps-4 mb-2">
+                                        <li class="py-1">Marina Bay</li>
+                                        <li class="py-1">Sentosa</li>
+                                    </ul>
+                                </li>
+
+                                <!-- Việt Nam -->
+                                <li class="list-group-item p-0">
+                                    <div class="d-flex justify-content-between align-items-center px-3 py-2">
+                                        <span class="fw-medium">Việt Nam (24)</span>
+                                        <button class="btn btn-sm btn-light p-0 toggle-btn"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#dest2"
+                                                aria-expanded="false">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </button>
+                                    </div>
+                                    <ul id="dest2" class="collapse list-unstyled ps-4 mb-2">
+                                        <li class="py-1">Hà Nội</li>
+                                        <li class="py-1">Hồ Chí Minh</li>
+                                    </ul>
+                                </li>
+
+                                <!-- Japan -->
+                                <li class="list-group-item p-0">
+                                    <div class="d-flex justify-content-between align-items-center px-3 py-2">
+                                        <span class="fw-medium">Japan</span>
+                                        <button class="btn btn-sm btn-light p-0 toggle-btn"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#dest3"
+                                                aria-expanded="false">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </button>
+                                    </div>
+                                    <ul id="dest3" class="collapse list-unstyled ps-4 mb-2 text-muted">
+                                        <li class="py-1 small">Không có mục con</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="card shadow-sm">
+                            <div class="card-header">Chủ đề</div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-3 py-2">
+                                    <div class="form-check mb-0">
+                                        <input class="form-check-input" type="checkbox" id="topic1" checked>
+                                        <label class="form-check-label ms-2" for="topic1">Ưu Đãi Nổi Bật</label>
+                                    </div>
+                                    <span class="badge bg-secondary rounded-pill">26</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-3 py-2">
+                                    <div class="form-check mb-0">
+                                        <input class="form-check-input" type="checkbox" id="topic2">
+                                        <label class="form-check-label ms-2" for="topic2">Công viên giải trí</label>
+                                    </div>
+                                    <span class="badge bg-secondary rounded-pill">25</span>
+                                </li>
+                                <!-- Thêm các mục khác tương tự -->
+                            </ul>
+                        </div>
+                    </aside>
+
+                    <!-- Main Results -->
+                    <div class="col-lg-9">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div class="d-flex align-items-center">
+                                <span class="me-2">Sắp xếp theo:</span>
+                                <select class="form-select w-auto">
+                                    <option>Giá: Từ thấp đến cao</option>
+                                    <option>Giá: Từ cao đến thấp</option>
+                                    <option>Đánh giá</option>
+                                </select>
+                            </div>
+                            <div>
+                                <span class="badge bg-success">Ưu Đãi Nổi Bật <a href="#" class="text-white ms-1">&times;</a></span>
+                            </div>
+                        </div>
+
+                        <!-- Tour cards -->
+                        <div class="row gy-4">
+                            <div class="col-12">
+                                <div class="card tour-item border-0 shadow-sm">
+                                    <div class="row g-0">
+                                        <div class="col-md-4 position-relative">
+                                            <img src="./img/anhmau/ve-cong-vien-nuoc-ho-tay-thumb.png" class="img-fluid rounded-start" alt="Tour">
+                                            <span class="badge bg-success position-absolute top-0 start-0 m-3">Xuất vé ngay</span>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Vé Cáp Treo Sun World Núi Bà Đen Tây Ninh</h5>
+                                                <p class="text-success mb-1"><i class="bi bi-star-fill"></i> 9.8 <small class="text-muted">(188 đánh giá)</small></p>
+                                                <ul class="list-unstyled mb-3 text-muted">
+                                                    <li>• Xác nhận đơn hàng tức thì</li>
+                                                    <li>• Xuất mã QR code tại địa điểm</li>
+                                                    <li>• Không hoàn hủy hoặc thay đổi thông tin</li>
+                                                </ul>
+                                                <div class="d-flex align-items-center">
+                                                    <h4 class="text-danger me-4 mb-0">145.000 VND</h4>
+                                                    <small class="text-muted me-auto">10 khách đặt trong 24h qua</small>
+                                                    <a href="datdichvu.html" class="btn btn-success">Xem chi tiết</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Copy .col-12 cho các tour khác -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <!-- footer -->
+    <footer class="footer bg-light pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <!-- Cột 1: Về KTS -->
+                <div class="col-6 col-md-3 mb-4">
+                    <h5 class="footer-heading">Về KTS</h5>
+                    <ul class="list-unstyled footer-list">
+                        <li><a href="#ve-chung-toi">Về chúng tôi</a></li>
+                        <li><a href="#lien-he">Liên hệ chúng tôi</a></li>
+                        <li><a href="#tro-giup">Trợ giúp</a></li>
+                        <li><a href="#tuyen-dung">Tuyển dụng</a></li>
+                    </ul>
+                </div>
+
+                <!-- Cột 2: Sản phẩm -->
+                <div class="col-6 col-md-3 mb-4">
+                    <h5 class="footer-heading">Sản phẩm</h5>
+                    <ul class="list-unstyled footer-list">
+                        <li><a href="#khach-san">Khách sạn</a></li>
+                        <li><a href="#tours">Tours</a></li>
+                        <li><a href="#vui-choi">Vui chơi</a></li>
+                    </ul>
+                </div>
+
+                <!-- Cột 3: Theo dõi chúng tôi -->
+                <div class="col-6 col-md-3 mb-4">
+                    <h5 class="footer-heading">Theo dõi chúng tôi tại</h5>
+                    <div class="d-flex align-items-center">
+                        <!-- Icon Facebook -->
+                        <a href="https://www.facebook.com/tenPage"
+                           target="_blank"
+                           class="me-3 social-icon"
+                           aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <!-- Icon YouTube -->
+                        <a href="https://www.youtube.com/tenKenh"
+                           target="_blank"
+                           class="me-3 social-icon"
+                           aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <!-- Nếu cần thêm icon khác, copy block phía trên và thay class/icon tương ứng -->
+                    </div>
+                </div>
+
+                <!-- Cột 4: Kênh thanh toán -->
+                <div class="col-6 col-md-3 mb-4">
+                    <h5 class="footer-heading">Kênh thanh toán</h5>
+                    <div class="d-flex flex-wrap align-items-center payment-icons">
+                        <!-- Mỗi logo thanh toán có thể là <img> hoặc <i> nếu bạn dùng font/icon kit -->
+                        <!-- Ở đây giả sử bạn có file ảnh nhỏ nằm ở /img/payments/visa.png, mastercard.png, ... -->
+                        <img src="#"
+                             alt="Visa"
+                             class="#" />
+                        <img src="#"
+                             alt="MasterCard"
+                             class="me-2 mb-2 payment-icon" />
+                        <img src="#"
+                             alt="American Express"
+                             class="me-2 mb-2 payment-icon" />
+                        <img src="#"
+                             alt="PayPal"
+                             class="me-2 mb-2 payment-icon" />
+                        <img src="#"
+                             alt="JCB"
+                             class="#" />
+                        <img src="#"
+                             alt="UnionPay"
+                             class="me-2 mb-2 payment-icon" />
+                        <!-- Thêm hoặc bớt logo khác theo thực tế -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- (Nếu muốn) có thể thêm copyright hoặc dòng bản quyền ở đây -->
+            <!--
+            <div class="row mt-4">
+              <div class="col text-center">
+                <p class="mb-0 text-muted">&copy; 2025 KTS Travel. All rights reserved.</p>
+              </div>
+            </div>
+            -->
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Flatpickr CSS -->
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+    <script src="/js/search.js"></script>
+
+
+
+
+</body>
+</html>

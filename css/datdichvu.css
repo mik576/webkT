@@ -1,0 +1,215 @@
+﻿:root {
+    --primary-color: #ff6200;
+    --discount-color: #e74c3c;
+    --bg-light: #fff8f2;
+    --border: #e5e5e5;
+    --text-muted: #777;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #fafafa;
+    color: #333;
+}
+
+/* ==== Offer Top ==== */
+.offer-top {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.5rem;
+}
+
+.intro-box {
+    background: var(--bg-light);
+    border-radius: .75rem;
+    padding: 1rem;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.more-link {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.thumb-icon {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    width: 40px;
+    opacity: .8;
+}
+
+.price-box {
+    background: #fff;
+    border-radius: .75rem;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+    .price-box .from-label {
+        color: #555;
+        font-size: .9rem;
+    }
+
+    .price-box .price-now {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #e74c3c;
+    }
+
+.price-old {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 1rem;
+    margin-left: .5rem;
+}
+
+.btn-cta {
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 999px;
+    padding: .6rem 1.2rem;
+    border: none;
+    font-weight: 600;
+}
+
+    .btn-cta:hover {
+        opacity: .9;
+    }
+
+/* ==== Discounts Bar ==== */
+.discounts-bar {
+    background: var(--bg-light);
+    padding: .5rem 1rem;
+    border-radius: .75rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+    .discounts-bar span:first-child {
+        font-weight: 600;
+    }
+
+.badge.bg-sale {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.badge.bg-discount {
+    background: var(--discount-color);
+    color: #fff;
+    border-radius: 999px;
+    padding: .35em .7em;
+    font-weight: 600;
+    font-size: .85rem;
+}
+
+/* ==== Section Title ==== */
+.section-title span {
+    border-left: 4px solid var(--primary-color);
+    padding-left: .5rem;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+/* ==== Tabs ==== */
+.offer-tabs .nav-link {
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: .4rem 1rem;
+    color: #555;
+    margin-right: .5rem;
+}
+
+    .offer-tabs .nav-link.active {
+        background: #fff;
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+    }
+
+/* ==== Service Cards ==== */
+.service-card {
+    border: 1px solid var(--border);
+    border-radius: .75rem;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.accordion-button {
+    font-weight: 600;
+}
+
+.accordion-body {
+    padding: 1rem;
+}
+
+.tag-group .badge {
+    margin-right: .5rem;
+    font-size: .8rem;
+}
+
+.btn-choose {
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: .5rem 1.2rem;
+}
+
+    .btn-choose:hover {
+        opacity: .9;
+    }
+
+/* ==== Description ==== */
+.service-desc {
+    background: #fff;
+    border-radius: .75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    margin-top: 2rem;
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 767px) {
+    .offer-top {
+        flex-direction: column;
+    }
+
+    .price-box,
+    .btn-cta,
+    .btn-choose {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/**/
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    border-left: 4px solid #ff6200;
+    padding-left: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.placeholder-img-small {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: .5rem;
+}
+
+/* Ẩn scrollbar, smooth scroll */
+.overflow-auto {
+    scroll-behavior: smooth;
+    padding-bottom: 1rem;
+}
+
+    .overflow-auto::-webkit-scrollbar {
+        display: none;
+    }
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 3rem;
+}

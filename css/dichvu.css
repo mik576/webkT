@@ -1,0 +1,285 @@
+﻿/* ====================
+   Global / Utility
+==================== */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.text-shadow {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Ẩn scrollbar Chrome/Safari */
+.location-carousel::-webkit-scrollbar {
+    display: none;
+}
+/* Nếu muốn ẩn scrollbar Firefox (có warning VS, chấp nhận hoặc bỏ) */
+/*
+@supports (scrollbar-width: none) {
+    .location-carousel {
+        scrollbar-width: none;
+    }
+}
+*/
+
+/* ====================
+   Hero Section
+==================== */
+.hero-section {
+    position: relative;
+    /* Đường dẫn ảnh: 
+       nếu CSS ở Content/css/tour.css và ảnh ở Content/img/anhmau/tour.png, dùng ../img/anhmau/tour.png */
+    background: url('../img/banner/trainghiem.png') no-repeat center center;
+    background-size: cover;
+    /* Giảm chiều cao để không chiếm quá nhiều */
+    height: 50vh;
+    min-height: 250px;
+    max-height: 400px;
+    color: #fff;
+}
+    /* Overlay mờ */
+    .hero-section .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+    }
+    /* Nội dung bên trong */
+    .hero-section .hero-content {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    /* Text và form */
+    .hero-section .hero-text {
+        width: 100%;
+        /* center trên mobile, left trên desktop nhờ text-lg-start */
+    }
+
+    .hero-section h1 {
+        font-size: 2rem; /* giảm cỡ cho vừa */
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .hero-section .search-box {
+        max-width: 500px;
+        width: 100%;
+    }
+
+        .hero-section .search-box .form-control {
+            border-radius: 50px 0 0 50px !important;
+            padding: 8px 12px;
+            font-size: 0.95rem;
+            border: none;
+        }
+
+        .hero-section .search-box .btn-search {
+            border-radius: 0 50px 50px 0 !important;
+            background-color: #90EE02;
+            padding: 8px 16px;
+            font-size: 0.95rem;
+            border: none;
+            color: #000;
+            transition: background-color 0.3s;
+        }
+
+            .hero-section .search-box .btn-search:hover {
+                background-color: #7acc00;
+            }
+
+/* ====================
+   Location Card Uniform Styles
+==================== */
+
+/* Container card */
+.location-card {
+    background: #fff;
+    border-radius: 15px;
+    border: 2px solid #fff; /* khung trắng bo tròn */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    /* Chiều rộng cố định, có thể điều chỉnh chung */
+    width: 150px;
+    /* Đặt display flex để dễ căn và đồng bộ chiều cao nội dung */
+    display: flex;
+    flex-direction: column;
+    /* Cho phép hover nâng nhẹ */
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 0 auto;
+}
+
+    /* Hover effect */
+    .location-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+    }
+
+    /* Image container: dùng aspect-ratio để cùng tỷ lệ (nếu browser hỗ trợ), 
+   hoặc giữ height cố định như trước */
+    .location-card img {
+        width: 100%;
+        /* 
+      Nếu muốn dùng aspect-ratio: 
+      aspect-ratio: 3 / 2; 
+      object-fit sẽ làm ảnh cover khung 3:2
+    */
+        aspect-ratio: 3 / 2;
+        object-fit: cover;
+        display: block;
+    }
+
+/* Nếu browser không hỗ trợ aspect-ratio, có thể thay bằng height cố định:
+.location-card img {
+    width: 100%;
+    height: 100px; 
+    object-fit: cover;
+}
+*/
+
+/* Phần nội dung dưới ảnh */
+.location-card-body {
+    flex: 1; /* chiếm phần còn lại, để đồng bộ chiều cao giữa các card */
+    padding: 0.75rem; /* tăng padding chút để cân đối */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* căn giữa theo chiều dọc nếu text ít */
+    align-items: center;
+    text-align: center;
+}
+
+    /* Title */
+    .location-card-body h6 {
+        margin: 0;
+        font-size: 0.95rem;
+        color: #333;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+    }
+
+    /* Nếu tên dài hơn 1 dòng, có thể cho xuống 2 dòng với ellipsis: */
+    /*
+.location-card-body h6 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.95rem;
+    line-height: 1.2em;
+    max-height: 2.4em; 
+    margin-bottom: 0.2rem;
+}
+*/
+
+    /* Subtitle (số hoạt động) */
+    .location-card-body small {
+        color: #777;
+        font-size: 0.8rem;
+        margin-top: 0.25rem;
+    }
+
+    /* Đảm bảo khoảng cách đồng đều nếu card-body có thêm phần nút hoặc icon: 
+   có thể thêm margin-bottom ở cuối nội dung */
+    .location-card-body .extra {
+        margin-top: 0.5rem;
+    }
+
+/* Responsive: giảm size card trên tablet/mobile */
+@media (max-width: 768px) {
+    .location-card {
+        width: 130px;
+    }
+
+        .location-card img {
+            /* Nếu dùng aspect-ratio, sẽ tự điều chỉnh height */
+            /* Nếu dùng height cố định, giảm height: */
+            /* height: 90px; */
+        }
+
+    .location-card-body {
+        padding: 0.6rem;
+    }
+
+        .location-card-body h6 {
+            font-size: 0.9rem;
+        }
+
+        .location-card-body small {
+            font-size: 0.75rem;
+        }
+}
+
+@media (max-width: 576px) {
+    .location-card {
+        width: 120px;
+    }
+
+        .location-card img {
+            /* height: 80px; nếu không dùng aspect-ratio */
+        }
+
+    .location-card-body {
+        padding: 0.5rem;
+    }
+
+        .location-card-body h6 {
+            font-size: 0.85rem;
+        }
+
+        .location-card-body small {
+            font-size: 0.7rem;
+        }
+}
+
+/*main*/
+
+/* Wrapper section */
+#hot-spring .hot-spring-wrapper {
+    background-color: #fff3e7;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+}
+
+/* List container */
+#hot-spring .hot-spring-list {
+    display: flex;
+    gap: 16px;
+}
+
+/* Card style */
+#hot-spring .hot-card {
+    flex: 0 0 auto;
+    width: 180px;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 8px;
+    text-decoration: none;
+    scroll-snap-align: start;
+}
+
+    /* Hình ảnh */
+    #hot-spring .hot-card img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+.text-purple {
+    color: #6f42c1;
+}
